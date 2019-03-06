@@ -4,11 +4,12 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    @users = User.all
+    @users = User.where(activated: true)
   end
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_url unless @user.activated?
   end
 
   def new
@@ -18,9 +19,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = 'Welcome to the Marin Cricket Club!'
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = 'You must check your email and activate your account.'
+      redirect_to root_url
     else
       render 'new'
     end
