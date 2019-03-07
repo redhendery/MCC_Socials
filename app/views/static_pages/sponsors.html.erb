@@ -1,1 +1,29 @@
 <% provide(:title, 'Sponsors') %>
+
+<h1 class="text-center">Our Sponsors</h1>
+
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-8 col-l-8 col-xl-8">
+    <p>
+      Marin Cricket Club is proud to be partnered with
+      <%= link_to 'New York Life', 'https://www.newyorklife.com', target: 'blank' %>.
+      We greatly appreciate their continued sponsorship of the annual New York Life T20 Tournament.
+    </p>
+
+    <p>For the year 2019, the NY Life T20 Cricket Festival will be on Saturday July 27th.</p>
+
+    <p>This year, team India will be defending the NY Life Trophy for the first time after last years stunning final over win in the final!</p>
+
+    <p>For more information on sponsorship contact</p>
+
+    <p>Mani Bakshi - mbakshi@ft.newyorklife.com</p>
+    <p>Or</p>
+    <p>
+      If you are interested in sponsoring the Marin Cricket Club, please contact us here
+      <%= link_to 'contact us here', contact_path %>.
+    </p>
+  </div>
+  <div class="col-12 col-sm-12 col-md-4 col-l-4 col-xl-4">
+    <%= image_tag('NYL_cricket.png', alt: 'New York Life', class: 'img-fluid') %>
+  </div>
+</div>
