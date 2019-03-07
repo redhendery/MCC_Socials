@@ -15,7 +15,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get contact page' do
-    get contact_path
+    get contact_index_path
     assert_response :success
     assert_select 'title', 'Contact | Marin Cricket Club'
   end

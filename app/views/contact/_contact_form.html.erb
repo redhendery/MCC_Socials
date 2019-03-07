@@ -1,0 +1,17 @@
+<%= form_for @contact, url: contact_index_path, remote: true do |f| %>
+<div class="form-group row">
+  <div class="col-md-6 offset-md-3">
+      <%= f.label :name %>
+      <%= f.text_field  :name, required: true, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email, required: true, class: 'form-control' %>
+
+    <%= f.label :message %>
+    <%= f.text_area :message, rows: 8, cols: 40, required: true,
+      class: 'form-control', placeholder: 'Send a message to Glenn.'%>
+
+    <%= f.submit 'Send Message', class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>
