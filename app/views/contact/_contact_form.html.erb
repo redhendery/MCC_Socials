@@ -4,14 +4,14 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
-      <%= f.text_field  :name, required: true, class: 'form-control' %>
+      <%= f.text_field  :name, required: true, class: 'form-control', placeholder: 'Your Name' %>
 
       <%= f.label :email %>
-      <%= f.text_field :email, required: true, class: 'form-control' %>
+      <%= f.text_field :email, required: true, class: 'form-control', placeholder: 'Your Email' %>
 
     <%= f.label :message %>
     <%= f.text_area :message, rows: 8, cols: 40, required: true,
-      class: 'form-control', placeholder: 'Send a message to Glenn.'%>
+      class: 'form-control', placeholder: 'Send a message to the Marin Cricket Club' %>
 
     <%= f.submit 'Send Message', class: 'btn btn-primary' %>
   </div>
