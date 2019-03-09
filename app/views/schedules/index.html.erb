@@ -1,0 +1,11 @@
+<% provide(:title, 'All Games') %>
+<% @schedules.each do |s| %>
+  <ul>
+    <li><%= s.opponent %></li>
+    <li><%= s.date %></li>
+    <li><%= s.series_game %></li>
+    <li><%= s.location %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Add Game', new_schedule_path, class: 'btn btn-lg btn-primary' %>

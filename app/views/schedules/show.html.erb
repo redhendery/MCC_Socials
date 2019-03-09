@@ -1,0 +1,8 @@
+<% provide(:title, @schedule.opponent) %>
+<h1>Game Details</h1>
+<ul>
+  <li><%= @schedule.date %></li>
+  <li><%= @schedule.opponent %></li>
+  <li>Game <%= @schedule.series_game %></li>
+  <li><%= @schedule.location %></li>
+</ul>

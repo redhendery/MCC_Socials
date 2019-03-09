@@ -1,0 +1,55 @@
+class SchedulesController < ApplicationController
+  before_action :admin_user, only: [:new, :create, :edit, :destroy]
+
+  def index
+    @schedules = Schedule.where(nil)
+  end
+
+  def show
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def new
+    @schedule = Schedule.new
+  end
+
+  def create
+    @schedule = Schedule.new(schedule_params)
+    if @schedule.save
+      flash[:success] = 'Game Added!'
+      redirect_to @schedule
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update_attributes(schedule_params)
+      flash[:success] = 'Game Updated!'
+      redirect_to @schedule
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Schedule.find(params[:id]).destroy
+    flash[:success] = 'Game deleted'
+    redirect_to schedules_url
+  end
+
+  private
+
+    def schedule_params
+      params.require(:schedule).permit(:date, :opponent, :series_game, :location)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+end

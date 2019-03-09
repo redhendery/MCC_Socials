@@ -1,0 +1,17 @@
+<%= form_for(@schedule) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, class: 'form-control' %>
+
+  <%= f.label :opponent %>
+  <%= f.text_field :opponent, class: 'form-control' %>
+
+  <%= f.label :Series_Game %>
+  <%= f.text_field :series_game, class: 'form-control' %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class:'btn btn-primary' %>
+<% end %>
