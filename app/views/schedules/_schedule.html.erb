@@ -1,0 +1,10 @@
+<li>
+  <%= link_to schedule.opponent, schedule %>
+  <%= schedule.date %>
+  <%= schedule.series_game %>
+  <%= schedule.location %>
+  <% if logged_in? && current_user.admin? %>
+    | <%= link_to 'Edit Game', edit_schedule_path(schedule.id) %>
+    | <%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %>
+  <% end %>
+</li>

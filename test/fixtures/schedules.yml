@@ -4,8 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  date: DateTime.strptime('05/04/2019', '%m/%d/%Y')
+  opponent: Intraclub
+  series_game: 1
+  location: Piper Park, Larkspur
+
+two:
+  date: DateTime.strptime('05/11/2019', '%m/%d/%Y')
+  opponent: Sri Lanka
+  series_game: 1
+  location: Piper Park, Larkspur

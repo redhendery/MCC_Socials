@@ -19,7 +19,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  test 'should redirect update when logged in as wrong user' do
+  test 'should redirect update when logged in as non user' do
     log_in_as(@other_user)
     patch user_path(@user), params: { user: { name: @user.name,
                                               email: @user.email } }
@@ -31,7 +31,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@other_user)
     assert_not @other_user.admin?
     patch user_path(@other_user), params: {
-                                    user: { password:              @other_user.password,
+                                    user: { password: @other_user.password,
                                             password_confirmation: @other_user.password_confirmation,
                                             admin: @other_user.admin } }
     assert_not @other_user.reload.admin?

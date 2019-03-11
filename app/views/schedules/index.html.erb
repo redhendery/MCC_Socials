@@ -1,11 +1,10 @@
 <% provide(:title, 'All Games') %>
-<% @schedules.each do |s| %>
-  <ul>
-    <li><%= s.opponent %></li>
-    <li><%= s.date %></li>
-    <li><%= s.series_game %></li>
-    <li><%= s.location %></li>
+<% @schedules.each do |schedule| %>
+  <ul class="schedules">
+    <%= render schedule %>
   </ul>
 <% end %>
 
-<%= link_to 'Add Game', new_schedule_path, class: 'btn btn-lg btn-primary' %>
+<% if logged_in? && current_user.admin? %>
+  <%= link_to 'Add Game', new_schedule_path, class: 'btn btn-lg btn-primary' %>
+<% end %>
