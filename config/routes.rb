@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      post :paid
+      put :paid
     end
   end
   resources :schedules
