@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy, :paid]
 
   def index
     @users = User.where(activated: true)
@@ -57,6 +57,12 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = 'User deleted'
+    redirect_to users_url
+  end
+
+  def paid
+    @user = User.find(params[:id])
+    @user.update(paid: true)
     redirect_to users_url
   end
 

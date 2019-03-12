@@ -4,6 +4,7 @@ users = User.create([{
   password: 'iammike',
   password_confirmation: 'iammike',
   admin: true,
+  paid: true,
   activated: true,
   activated_at: Time.zone.now
 }, {
@@ -12,6 +13,7 @@ users = User.create([{
   password: 'iamsteve',
   password_confirmation: 'iamsteve',
   admin: false,
+  paid: false,
   activated: true,
   activated_at: Time.zone.now
 }])
