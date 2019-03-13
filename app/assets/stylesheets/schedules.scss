@@ -1,12 +1,15 @@
 // Place all the styles related to the Schedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.schedules {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid;
+// Card Spacing
+.body-content {
+  margin-top: 10px;
+}
+
+.card-deck {
+  min-height: 100%;
+  padding-bottom: 30px;
+  h5 {
+    margin-top: 12px;
   }
 }

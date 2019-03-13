@@ -1,10 +1,32 @@
-<li>
-  <%= link_to schedule.opponent, schedule %>
-  <%= schedule.date %>
-  <%= schedule.series_game %>
-  <%= schedule.location %>
-  <% if logged_in? && current_user.admin? %>
-    | <%= link_to 'Edit Game', edit_schedule_path(schedule.id) %>
-    | <%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %>
-  <% end %>
-</li>
+<div class="card-deck">
+  <div class="card text-center">
+    <div class="card-header">
+      <h5 class="card-title">
+        <strong>
+          <% if schedule.opponent == 'Intraclub' %>
+            <%= schedule.opponent %>
+          <% else %>
+            Marin Socials vs. <%= schedule.opponent %>
+          <% end %>
+        </strong>
+      </h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <%= schedule.date.to_formatted_s(:long) %>
+      </p>
+      <p class="card-text">
+        Series Game: <%= schedule.series_game %>
+      </p>
+      <p class="card-text">
+        <%= schedule.location %>
+      </p>
+    </div>
+    <% if logged_in? && current_user.admin? %>
+      <div class="card-footer">
+        <span class="float-left"><%= link_to 'Edit Game', edit_schedule_path(schedule) %></span>
+        <span class="float-right"><%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -19,6 +19,11 @@ html {
   min-height: 100%;
 }
 
+/* Body Content Styling */
+.body-content {
+  margin: 30px 60px 60px 60px;
+}
+
 section {
   overflow: auto;
 }
@@ -67,16 +72,15 @@ p {
     width: 80px;
     height: auto;
     border-radius: 15%;
-    margin-left: 15px;
+    margin-left: 30px;
   }
   .navbar-brand {
     font-size: 2.5rem;
+    margin-left: 30px;
   }
-}
-
-/* Body Content Styling */
-.body-content {
-  padding-top: 30px;
+  .navbar-collapse {
+    margin-right: 30px;
+  }
 }
 
 /* forms */
