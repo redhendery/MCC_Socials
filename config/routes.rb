@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users do
+  resources :users, path: '/players' do
     member do
       put :paid
     end
   end
+
   resources :schedules
   resources :account_activations, only: [:edit]
   resources :contact, only: [:index, :new, :create]

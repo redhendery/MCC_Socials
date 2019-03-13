@@ -18,6 +18,40 @@ users = User.create([{
   activated_at: Time.zone.now
 }])
 
+25.times do |n|
+  name = Faker::Name.name
+  email = "example-#{n+1}@example.com"
+  password = 'password'
+  password_confirmation = 'password'
+  User.create!(
+    name: name,
+    email: email,
+    password: password,
+    password_confirmation: password_confirmation,
+    admin: false,
+    paid: false,
+    activated: true,
+    activated_at: Time.zone.now
+  )
+end
+
+25.times do |n|
+  name = Faker::Name.name
+  email = "donkey-#{n+1}@example.com"
+  password = 'password'
+  password_confirmation = 'password'
+  User.create!(
+    name: name,
+    email: email,
+    password: password,
+    password_confirmation: password_confirmation,
+    admin: false,
+    paid: true,
+    activated: true,
+    activated_at: Time.zone.now
+  )
+end
+
 p "Added #{User.count} Players."
 
 schedules = Schedule.create([{
