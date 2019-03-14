@@ -1,8 +1,12 @@
 <% provide(:title, @schedule.opponent) %>
 <h1>Game Information</h1>
+<% if logged_in? && current_user.admin? %>
+  <%= link_to 'Edit Game', edit_schedule_path %>
+  <%= link_to 'Delete Game', @schedule, method: :delete, data: { confirm: 'You sure brah?' } %>
+<% end %>
 <ul>
-  <li><%= @schedule.date %></li>
+  <li>When: <%= @schedule.date.strftime('%A %d %B') %></li>
   <li><%= @schedule.opponent %></li>
   <li>Game <%= @schedule.series_game %></li>
-  <li><%= @schedule.location %></li>
+  <li>Location:<%= @schedule.location %></li>
 </ul>

@@ -13,13 +13,13 @@
     </div>
     <div class="card-body">
       <p class="card-text">
-        <%= schedule.date.to_formatted_s(:long) %>
+        When: <%= schedule.date.strftime('%A %d %B') %>
       </p>
       <p class="card-text">
         Series Game: <%= schedule.series_game %>
       </p>
       <p class="card-text">
-        <%= schedule.location %>
+        Where: <%= schedule.location %>
       </p>
     </div>
       <div class="card-footer">
