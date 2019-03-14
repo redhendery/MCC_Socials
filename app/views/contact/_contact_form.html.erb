@@ -1,6 +1,6 @@
 <%= form_for @contact, url: contact_index_path, remote: true do |f| %>
-<div class="form-group row">
-  <div class="col-md-6 offset-md-3">
+<div class="form-group row justify-content-center">
+  <div class="col-lg-4">
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
