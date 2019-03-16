@@ -7,7 +7,7 @@
   <li>Game <%= @schedule.series_game %></li>
   <li><%= @schedule.location %></li>
 </ul>
-<%= link_to 'Sign Up for Game', availability_schedule_path(@schedule), class: 'btn btn-primary' %>
+<%= link_to 'Sign Up for Game', availability_schedule_path(@schedule), class: 'btn btn-primary' if logged_in? %>
 
 <ul>
   <% if logged_in? && current_user.admin? %>
