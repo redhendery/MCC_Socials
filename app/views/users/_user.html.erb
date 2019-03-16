@@ -3,8 +3,8 @@
   <%= link_to user.name, user %>
   <% if logged_in? && current_user.admin? && !current_user?(user) %>
     <% if user.paid? == false %>
-      | <%= link_to 'Paid Fees', paid_user_path(user), method: :put %>
+      <%= link_to 'Paid Fees', paid_user_path(user), class: 'btn btn-success float-right', method: :put %>
     <% end %>
-    | <%= link_to 'Delete', user, method: :delete, data: { confirm: 'You sure brah?' } %>
+      <%= link_to 'Delete', user,class: 'btn btn-danger float-right',  method: :delete, data: { confirm: 'You sure brah?' } %>
   <% end %>
 </li>

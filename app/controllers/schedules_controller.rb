@@ -43,6 +43,16 @@ class SchedulesController < ApplicationController
     redirect_to schedules_url
   end
 
+  def availability
+    if logged_in?
+      user ||= current_user
+      @schedule = Schedule.find(params[:id])
+      @schedule.user_ids = user.id
+      flash[:success] = 'Thank you ' + user.name + ' for signing up to play!'
+      redirect_to @schedule
+    end
+  end
+
   private
 
     def schedule_params

@@ -18,7 +18,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :schedules
+  resources :schedules do
+    member do
+      get :availability
+    end
+  end
+
   resources :account_activations, only: [:edit]
   resources :contact, only: [:index, :new, :create]
   resources :password_resets, only: [:new, :create, :edit, :update]
