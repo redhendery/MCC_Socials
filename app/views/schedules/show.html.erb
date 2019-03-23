@@ -7,7 +7,14 @@
   <li>Game <%= @schedule.series_game %></li>
   <li><%= @schedule.location %></li>
 </ul>
-<%= link_to 'Sign Up for Game', availability_schedule_path(@schedule), class: 'btn btn-primary' if logged_in? %>
+
+<% if logged_in? %>
+  <% if @schedule.selections.find_by(user_id: current_user.id) %>
+    <%= link_to 'Withdraw from Selection', unavailable_schedule_path(@schedule), class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'Sign Up for Selection', available_schedule_path(@schedule), class: 'btn btn-success' %>
+  <% end %>
+<% end %>
 
 <ul>
   <% if logged_in? && current_user.admin? %>
@@ -19,3 +26,4 @@
 </ul>
 <%= submit_tag 'Save Lineup', class: 'btn btn-primary', data: { confirm: 'Confirm lineup?' } %>
 <% end %>
+<% console %>

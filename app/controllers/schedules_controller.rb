@@ -43,12 +43,21 @@ class SchedulesController < ApplicationController
     redirect_to schedules_url
   end
 
-  def availability
+  def available
     if logged_in?
-      user ||= current_user
       @schedule = Schedule.find(params[:id])
-      @schedule.user_ids = user.id
-      flash[:success] = 'Thank you ' + user.name + ' for signing up to play!'
+      current_user.selections.create(schedule: @schedule)
+      flash[:success] = 'Thank you ' + current_user.name + ' for signing up to play!'
+      redirect_to @schedule
+    end
+  end
+
+  def unavailable
+    if logged_in?
+      @schedule = Schedule.find(params[:id])
+      @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
+      @selection.destroy
+      flash[:danger] = current_user.name + ' you will not be slected to play.'
       redirect_to @schedule
     end
   end

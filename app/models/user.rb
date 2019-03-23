@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :availabilities
-  has_many :schedules, through: :availabilities
+  has_many :selections
+  has_many :schedules, through: :selections
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest

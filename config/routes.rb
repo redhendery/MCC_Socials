@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :schedules do
     member do
-      get :availability
+      get :available, :unavailable
     end
   end
 

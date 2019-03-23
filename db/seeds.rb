@@ -18,7 +18,7 @@ users = User.create([{
   activated_at: Time.zone.now
 }])
 
-25.times do |n|
+5.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@example.com"
   password = 'password'
@@ -35,7 +35,7 @@ users = User.create([{
   )
 end
 
-25.times do |n|
+5.times do |n|
   name = Faker::Name.name
   email = "donkey-#{n+1}@example.com"
   password = 'password'
