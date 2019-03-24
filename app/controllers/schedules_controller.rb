@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_action :logged_in?, only: [:available, :unavailable]
   before_action :admin_user, only: [:new, :create, :edit, :destroy]
 
   def index
@@ -44,22 +45,18 @@ class SchedulesController < ApplicationController
   end
 
   def available
-    if logged_in?
-      @schedule = Schedule.find(params[:id])
-      current_user.selections.create(schedule: @schedule)
-      flash[:success] = 'Thank you ' + current_user.name + ' for signing up to play!'
-      redirect_to @schedule
-    end
+    @schedule = Schedule.find(params[:id])
+    current_user.selections.create(schedule: @schedule)
+    flash[:success] = 'Thank you ' + current_user.name + ' for signing up to play!'
+    redirect_to @schedule
   end
 
   def unavailable
-    if logged_in?
-      @schedule = Schedule.find(params[:id])
-      @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
-      @selection.destroy
-      flash[:danger] = current_user.name + ' you will not be slected to play.'
-      redirect_to @schedule
-    end
+    @schedule = Schedule.find(params[:id])
+    @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
+    @selection.destroy
+    flash[:danger] = current_user.name + ' you will not be slected to play.'
+    redirect_to @schedule
   end
 
   private
