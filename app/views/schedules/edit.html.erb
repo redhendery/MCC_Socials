@@ -1,8 +1,27 @@
 <% provide(:title, 'Edit Game') %>
 <% provide(:button_text, 'Save Changes') %>
-<h1>Update Game</h1>
-<div class="form-group row justify-content-center">
-  <div class="col-md-4">
-    <%= render 'form' %>
+
+<% if @available.nil? %>
+
+  <h1>Update Game</h1>
+  <div class="form-group row justify-content-center">
+    <div class="col-md-4">
+      <%= render 'form' %>
+    </div>
   </div>
-</div>
+
+<% else %>
+
+  <h1>Update Game</h1>
+  <div class="form-group row justify-content-around">
+    <div class="col-md-4">
+      <h3>Update Game Details</h3>
+      <%= render 'form' %>
+    </div>
+    <div class="col-md-4">
+      <h3>Set Game Lineup</h3>
+      <%= render 'selection' %>
+    </div>
+  </div>
+
+<% end %>
