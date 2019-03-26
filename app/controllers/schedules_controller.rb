@@ -8,6 +8,9 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
+    if logged_in?
+      @available = @schedule.selections.find_by(user_id: current_user.id)
+    end
   end
 
   def new
@@ -62,11 +65,12 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:date, :opponent, :series_game, :location)
+      params.require(:schedule).permit(:date, :opponent, :series_game, :location, user_ids: [])
     end
 
     def admin_user
-      if logged_in? && current_user.admin?
+      if
+        admin_logged_in?
       else
         redirect_to root_url
       end

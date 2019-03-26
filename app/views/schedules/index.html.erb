@@ -7,6 +7,6 @@
   <% end %>
 </div>
 
-<% if logged_in? && current_user.admin? %>
+<% if admin_logged_in? %>
   <%= link_to 'Add Game', new_schedule_path, class: 'btn btn-lg btn-primary' %>
 <% end %>

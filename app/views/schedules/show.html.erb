@@ -9,20 +9,9 @@
 </ul>
 
 <% if logged_in? %>
-  <% if @schedule.selections.find_by(user_id: current_user.id) %>
+  <% if @available %>
     <%= link_to 'Withdraw from Selection', unavailable_schedule_path(@schedule), class: 'btn btn-danger' %>
   <% else %>
     <%= link_to 'Sign Up for Selection', available_schedule_path(@schedule), class: 'btn btn-success' %>
   <% end %>
-<% end %>
-
-<ul>
-  <% if logged_in? && current_user.admin? %>
-    <%= hidden_field_tag 'schedule[user_ids][]', nil %>
-    <% User.all.each do |user| %>
-      <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
-      <%= label_tag dom_id(user), user.name %>
-    <% end %>
-</ul>
-<%= submit_tag 'Save Lineup', class: 'btn btn-primary', data: { confirm: 'Confirm lineup?' } %>
 <% end %>

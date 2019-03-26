@@ -31,7 +31,7 @@
     </div>
       <div class="card-footer">
         <span><%= link_to 'Game Information', schedule %></span>
-        <% if logged_in? && current_user.admin? %>
+        <% if admin_logged_in? %>
           <span class="float-left"><%= link_to 'Edit Game', edit_schedule_path(schedule) %></span>
           <span class="float-right"><%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %></span>
         <% end %>

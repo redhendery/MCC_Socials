@@ -14,4 +14,15 @@
   <%= f.text_field :location, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class:'btn btn-primary' %>
+
+  <% if admin_logged_in? %>
+    <%= hidden_field_tag 'schedule[user_ids][]', nil %>
+    <% @schedule.users.each do |user| %>
+      <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
+      <%= label_tag dom_id(user), user.name %>
+    <% end %>
+  </ul>
+  <%= submit_tag 'Save Lineup', class: 'btn btn-primary', data: { confirm: 'Confirm lineup?' } %>
+  <% end %>
+
 <% end %>
