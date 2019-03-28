@@ -9,11 +9,6 @@ class ScheduleTest < ActiveSupport::TestCase
     assert @schedule.valid?
   end
 
-  test 'date should be present' do
-    @schedule.date = '      '
-    assert_not @schedule.valid?
-  end
-
   test 'opponent should be present' do
     @schedule.opponent = '      '
     assert_not @schedule.valid?

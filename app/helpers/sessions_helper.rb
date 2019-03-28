@@ -64,4 +64,8 @@ module SessionsHelper
     session[:forwarding_url] = request.original_url if request.get?
   end
 
+  def paid
+    current_user.paid?
+  end
+
 end

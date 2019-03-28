@@ -13,17 +13,18 @@
     </div>
     <div class="card-body">
       <p class="card-text">
-        <%= schedule.date.to_formatted_s(:long) %>
+        When: <%= schedule.date.strftime('%A %d %B') %>
       </p>
       <p class="card-text">
         Series Game: <%= schedule.series_game %>
       </p>
       <p class="card-text">
-        <%= schedule.location %>
+        Where: <%= schedule.location %>
       </p>
-       <% if logged_in? %>
+       <% if logged_in? && paid %>
          <% if schedule.selections.find_by(user_id: current_user.id) %>
-           <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule), class: 'btn btn-danger' %>
+           <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
+               class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
         <% else %>
           <%= link_to 'Sign Up for Selection', available_schedule_path(schedule), class: 'btn btn-success' %>
         <% end %>
