@@ -1,0 +1,12 @@
+<%= form_for(@schedule) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= hidden_field_tag 'schedule[user_ids][]', nil %>
+  <% @schedule.users.each do |user| %>
+    <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
+    <%= label_tag dom_id(user), user.name %>
+  <% end %>
+  
+  <%= submit_tag 'Save Lineup', class: 'btn btn-success', data: { confirm: 'Confirm Lineup?' } %>
+
+<% end %>

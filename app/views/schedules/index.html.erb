@@ -1,5 +1,5 @@
 <% provide(:title, 'All Games') %>
-<h1>2019 Schedule</h1>
+<h1>2019 Marin Socials Schedule</h1>
 <div class="row">
   <% @schedules.each do |schedule| %>
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -8,6 +8,6 @@
   <% end %>
 </div>
 
-<% if logged_in? && current_user.admin? %>
+<% if admin_logged_in? %>
   <%= link_to 'Add Game', new_schedule_path, class: 'btn btn-lg btn-primary' %>
 <% end %>

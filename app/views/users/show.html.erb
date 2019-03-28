@@ -9,3 +9,7 @@
     </section>
   </aside>
 </div>
+
+<% if admin_logged_in? %>
+  <%= render 'admin_buttons' %>
+<% end %>

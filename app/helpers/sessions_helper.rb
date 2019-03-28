@@ -35,6 +35,12 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def admin_logged_in?
+    if logged_in?
+      current_user.admin?
+    end
+  end
+
   def forget(user)
     user.forget
     cookies.delete(:user_id)
@@ -56,6 +62,10 @@ module SessionsHelper
   # Stores the URL trying to be accessed.
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  def paid
+    current_user.paid?
   end
 
 end

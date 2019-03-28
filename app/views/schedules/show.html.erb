@@ -1,12 +1,36 @@
 <% provide(:title, @schedule.opponent) %>
-<h1>Game Information</h1>
-<% if logged_in? && current_user.admin? %>
-  <%= link_to 'Edit Game', edit_schedule_path %>
-  <%= link_to 'Delete Game', @schedule, method: :delete, data: { confirm: 'You sure brah?' } %>
-<% end %>
-<ul>
-  <li>When: <%= @schedule.date.strftime('%A %d %B') %></li>
-  <li><%= @schedule.opponent %></li>
-  <li>Game <%= @schedule.series_game %></li>
-  <li>Location:<%= @schedule.location %></li>
-</ul>
+
+<div class="row justify-content-around">
+  <div class="col-7">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Match Centre</strong></h5>
+        <p class="card-text small"><%= @schedule.id.ordinalize %> Socials Match of <%= @schedule.date.year %>.</p>
+        <ul class="card-text">
+          <li>When: <%= @schedule.date.strftime('%A %d %B') %></li>
+          <li><%= @schedule.opponent %></li>
+          <li>Game <%= @schedule.series_game %></li>
+          <li>Location: <%= @schedule.location %></li>
+          <%= render 'schedules/partials/logged_in' %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Match Run Times</strong></h5>
+        <ul class="card-text">
+          <li>Players arrive: <span class="float-right">10:15am</span></li>
+          <li>Coin Toss: <span class="float-right">10:25am</span></li>
+          <li>Game Start: <span class="float-right">10:45am</span></li>
+          <li>Lunch Break: <span class="float-right">2:15pm</span></li>
+          <li>Game End: <span class="float-right">6:00pm</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'schedules/partials/admin_buttons' %>
+<% console %>

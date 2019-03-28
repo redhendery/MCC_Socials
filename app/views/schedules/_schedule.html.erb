@@ -21,10 +21,18 @@
       <p class="card-text">
         Where: <%= schedule.location %>
       </p>
+       <% if logged_in? && paid %>
+         <% if schedule.selections.find_by(user_id: current_user.id) %>
+           <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
+               class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
+        <% else %>
+          <%= link_to 'Sign Up for Selection', available_schedule_path(schedule), class: 'btn btn-success' %>
+        <% end %>
+      <% end %>
     </div>
       <div class="card-footer">
         <span><%= link_to 'Game Information', schedule %></span>
-        <% if logged_in? && current_user.admin? %>
+        <% if admin_logged_in? %>
           <span class="float-left"><%= link_to 'Edit Game', edit_schedule_path(schedule) %></span>
           <span class="float-right"><%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %></span>
         <% end %>
