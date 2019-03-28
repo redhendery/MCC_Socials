@@ -1,8 +1,8 @@
 <% if logged_in? && paid %>
   <% if @available %>
     <%= link_to 'Withdraw from Selection', unavailable_schedule_path(@schedule),
-        class: 'btn btn-danger float-right', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
+        class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
   <% else %>
-    <%= link_to 'Sign Up for Selection', available_schedule_path(@schedule), class: 'btn btn-success float-right' %>
+    <%= link_to 'Sign Up for Selection', available_schedule_path(@schedule), class: 'btn btn-success' %>
   <% end %>
 <% end %>
