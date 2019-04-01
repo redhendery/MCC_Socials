@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Match Centre</strong></h5>
+    <p class="card-text small"><%= @schedule.id.ordinalize %> Socials Match of <%= @schedule.date.year %>. Played at <%= @schedule.location %></p>
+    <ul class="card-text">
+      <li><%= @schedule.opponent %></li>
+      <li>Game <%= @schedule.series_game %> of <%= @no_of_games %></li>
+      <li><%= @schedule.date.strftime('%A %B %d') %></li>
+    </ul>
+  </div>
+</div>

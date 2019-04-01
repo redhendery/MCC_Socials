@@ -8,6 +8,7 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
+    @no_of_games = Schedule.where(opponent: @schedule.opponent).count
     if logged_in?
       @available = @schedule.selections.find_by(user_id: current_user.id)
     end
