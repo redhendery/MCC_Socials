@@ -12,23 +12,21 @@
       </h5>
     </div>
     <div class="card-body">
-      <p class="card-text">
-        When: <%= schedule.date %>
-      </p>
-      <p class="card-text">
-        Game <%= schedule.series_game %>
-      </p>
-      <p class="card-text">
-        Where: <%= schedule.location %>
-      </p>
-       <% if logged_in? && paid %>
-         <% if schedule.selections.find_by(user_id: current_user.id) %>
-           <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
-               class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
-        <% else %>
-          <%= link_to 'Sign Up for Selection', available_schedule_path(schedule), class: 'btn btn-success' %>
+      <p class="card-text">When: <%= schedule.date %></p>
+      <p class="card-text">Game <%= schedule.series_game %></p>
+      <p class="card-text">Where: <%= schedule.location %></p>
+
+      <% unless schedule.completed? %>
+         <% if logged_in? && paid %>
+           <% if schedule.selections.find_by(user_id: current_user.id) %>
+             <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
+                 class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
+          <% else %>
+            <%= link_to 'Sign Up for Selection', available_schedule_path(schedule), class: 'btn btn-success' %>
+          <% end %>
         <% end %>
       <% end %>
+
     </div>
       <div class="card-footer">
         <span><%= link_to 'Game Information', schedule %></span>

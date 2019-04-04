@@ -1,9 +1,11 @@
 class SchedulesController < ApplicationController
   before_action :logged_in?, only: [:available, :unavailable]
   before_action :admin_user, only: [:new, :create, :edit, :destroy]
+  after_action :completed, only: [:edit, :update, :new, :create]
+  after_action :not_completed, only: [:edit, :update]
 
   def index
-    @schedules = Schedule.where(nil)
+    @schedules = Schedule.where(nil).order(date: :asc)
   end
 
   def show
@@ -71,10 +73,17 @@ class SchedulesController < ApplicationController
     end
 
     def admin_user
-      if
-        admin_logged_in?
-      else
-        redirect_to root_url
+      if admin_logged_in?
+      else redirect_to root_url
       end
     end
+
+    def completed
+      Schedule.where('date < ?', Date.today).update_all(completed: true)
+    end
+
+    def not_completed
+      Schedule.where('date > ?', Date.today).update_all(completed: false)
+    end
+
 end

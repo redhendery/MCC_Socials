@@ -1,3 +1,2 @@
 class SelectionsController < ApplicationController
-  
 end

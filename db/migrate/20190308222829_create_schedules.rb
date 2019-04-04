@@ -4,6 +4,7 @@ class CreateSchedules < ActiveRecord::Migration[5.2]
       t.date :date
       t.string :opponent
       t.integer :series_game
+      t.boolean :completed, default: false
       t.string :location, default: 'Piper Park, Larkspur'
 
       t.timestamps

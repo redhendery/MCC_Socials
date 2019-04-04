@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 # Static Routes
   get '/about', to: 'static_pages#about'
   get '/sponsors', to: 'static_pages#sponsors'
-
+  get '/membership', to: 'static_pages#membership'
 # Login, Logout and Signup Routes
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
