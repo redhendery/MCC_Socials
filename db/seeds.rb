@@ -55,15 +55,15 @@ end
 p "Added #{User.count} Players."
 
 schedules = Schedule.create([{
-  date: DateTime.strptime('05/04/2019', '%m/%d/%Y'),
+  date: DateTime.strptime('04/06/2019', '%m/%d/%Y'),
   opponent: 'Intraclub',
   series_game: 1
 }, {
-  date: DateTime.strptime('05/11/2019', '%m/%d/%Y'),
+  date: DateTime.strptime('04/07/2019', '%m/%d/%Y'),
   opponent: 'Intraclub',
   series_game: 2
 }, {
-  date: DateTime.strptime('05/18/2019', '%m/%d/%Y'),
+  date: DateTime.strptime('04/13/2019', '%m/%d/%Y'),
   opponent: 'Napa Valley Cricket Club',
   series_game: 1
 }, {

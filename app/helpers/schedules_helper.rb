@@ -1,7 +1,7 @@
 module SchedulesHelper
-  # def selection_open
-  #   if
-  #   else
-  #   end
-  # end
+
+  def next_week
+    Date.current..(Date.current + 7)
+  end
+
 end
