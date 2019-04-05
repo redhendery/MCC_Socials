@@ -1,6 +1,9 @@
 <li>
-  <%= gravatar_for user, size: 50 %>
+  <% if user.avatar.attached? %>
+    <%= image_tag @user.avatar %>
+  <% end %>
   <%= link_to user.name, user %>
+
   <% if admin_logged_in? %>
     <%= link_to 'Delete', user,class: 'btn btn-danger float-right',  method: :delete,
         data: { confirm: 'You sure brah? ' + user.name + ' will be PERMANENTLY DELETED from the database.'} %>
@@ -9,4 +12,5 @@
                   method: :put, data: { confirm: user.name + ' has paid fees?' } %>
     <% end %>
   <% end %>
+
 </li>
