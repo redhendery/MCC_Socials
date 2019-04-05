@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, path: '/players' do
     member do
-      put :paid
+      put :paid, :admin, :remove_admin
     end
   end
 

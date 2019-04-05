@@ -1,7 +1,7 @@
 <% provide(:title, 'Edit Game') %>
 <% provide(:button_text, 'Save Changes') %>
 
-<% if @available.nil? %>
+<% if @available.nil? || @schedule.completed? %>
 
   <h1>Update Game</h1>
   <div class="form-group row justify-content-center">

@@ -67,6 +67,20 @@ class UsersController < ApplicationController
     flash[:success] = @user.name + ' marked as having paid fees.'
   end
 
+  def admin
+    @user = User.find(params[:id])
+    @user.update(admin: true)
+    redirect_to users_url
+    flash[:success] = @user.name + ' now has admin rights.'
+  end
+
+  def remove_admin
+    @user = User.find(params[:id])
+    @user.update(admin: false)
+    redirect_to users_url
+    flash[:danger] = @user.name + ' no longer has admin rights.'
+  end
+
   private
 
     def user_params
