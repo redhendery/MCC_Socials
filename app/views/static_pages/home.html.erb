@@ -1,24 +1,9 @@
 <% if @upcoming.empty? && @previous.empty? %>
 
-  <p>Find me in app/views/static_pages/home.html.erb</p>
-  <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+  <%= render 'static_pages/partials/not_logged_in' %>
 
 <% else  %>
 
-  <div class="row justify-content-around">
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-      <h1>Previous Games</h1>
-      <% @previous.each do |schedule| %>
-        <%= render schedule %>
-      <% end %>
-    </div>
-
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-      <h1>Upcoming Games</h1>
-      <% @upcoming.each do |schedule| %>
-        <%= render schedule %>
-      <% end %>
-    </div>
-  </div>
+  <%= render 'static_pages/partials/logged_in' %>
 
 <% end %>
