@@ -32,7 +32,6 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
-    @available = @schedule.selections.find_by(user_id: current_user.id)
   end
 
   def update

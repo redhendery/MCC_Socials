@@ -1,4 +1,4 @@
-<% if @upcoming.empty? && @previous.empty? %>
+<% if logged_in? == false %>
 
   <%= render 'static_pages/partials/not_logged_in' %>
 
