@@ -10,6 +10,14 @@
   </aside>
 </div>
 
+<% unless @user.paid? %>
+  <p>
+    Please click the link below to to pay your membership dues.
+    <b>You are unable to sign up for games until your fees have been paid.</b>
+  </p>
+  <%= link_to 'Memberships', membership_path, class: 'btn btn-lg btn-primary' %>
+<% end %>
+
 <% if admin_logged_in? %>
   <%= render 'admin_buttons' %>
 <% end %>
