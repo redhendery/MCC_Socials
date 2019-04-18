@@ -1,21 +1,25 @@
-<div class="row justify-content-around">
-
-  <% unless @upcoming.empty? %>
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-      <h1>This Week</h1>
-      <% @upcoming.each do |schedule| %>
-        <%= render schedule %>
-      <% end %>
-    </div>
-  <% end %>
-  
-  <% unless @previous.empty? %>
-    <% @previous.each do |schedule| %>
+<% if @upcoming.empty? %>
+  <h3>There are no games this weekend.</h3>
+<% else %>
+  <h1>Games this weekend</h1>
+  <div class="row justify-content-around">
+    <% @upcoming.each do |schedule| %>
       <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-        <h1>Last Week</h1>
         <%= render schedule %>
       </div>
     <% end %>
-  <% end %>
+  </div>
+<% end %>
 
-</div>
+<% if @previous.empty? %>
+  <h3>There were no games last weekend.</h3>
+<% else %>
+  <h1>Games last weekend</h1>
+  <div class="row justify-content-around">
+    <% @previous.each do |schedule| %>
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+        <%= render schedule %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

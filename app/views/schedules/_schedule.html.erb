@@ -16,7 +16,7 @@
       <p class="card-text">Game <%= schedule.series_game %></p>
       <p class="card-text">Where: <%= schedule.location %></p>
 
-      <% unless schedule.completed? %>
+      <% unless schedule.completed? || schedule.date < Date.today + 3 %>
          <% if logged_in? && paid && next_week.cover?(schedule.date) %>
            <% if schedule.selections.find_by(user_id: current_user.id) %>
              <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
