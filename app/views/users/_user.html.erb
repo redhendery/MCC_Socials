@@ -9,11 +9,11 @@
 
       <%= link_to 'Paid Fees', paid_user_path(user),
           class: 'btn btn-success float-right', method: :put,
-          data: { confirm: user.name + ' has paid fees?' } if user.paid? == false %>
+          data: { confirm: user.name + ' has paid fees?' } unless user.paid? %>
 
       <%= link_to 'Make Admin', admin_user_path(user),
           class: 'btn btn-warning float-right', method: :put,
-          data: { confirm: 'Give ' + user.name + ' Admin User rights?' } if user.admin? == false %>
+          data: { confirm: 'Give ' + user.name + ' Admin User rights?' } unless user.admin? %>
 
       <%= link_to 'Remove Admin', remove_admin_user_path(user),
           class: 'btn btn-secondary float-right', method: :put,

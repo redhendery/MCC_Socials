@@ -3,6 +3,9 @@ users = User.create([{
   email: 'mike@email.com',
   password: 'iammike',
   password_confirmation: 'iammike',
+  role: 'All Rounder',
+  bats: 'Left',
+  bowls: 'Right',
   admin: true,
   paid: true,
   activated: true,
@@ -12,6 +15,9 @@ users = User.create([{
   email: 'steve@email.com',
   password: 'iamsteve',
   password_confirmation: 'iamsteve',
+  role: 'Bowler',
+  bats: 'Left',
+  bowls: 'Right',
   admin: false,
   paid: false,
   activated: true,
@@ -28,6 +34,9 @@ users = User.create([{
     email: email,
     password: password,
     password_confirmation: password_confirmation,
+    role: 'Bowler',
+    bats: 'Right',
+    bowls: 'Right',
     admin: false,
     paid: false,
     activated: true,
@@ -45,6 +54,9 @@ end
     email: email,
     password: password,
     password_confirmation: password_confirmation,
+    role: 'Batsmen',
+    bats: 'Right',
+    bowls: 'Right',
     admin: false,
     paid: true,
     activated: true,
@@ -52,7 +64,7 @@ end
   )
 end
 
-p "Added #{User.count} Players."
+p "Added #{User.count} Players and #{PlayerStat.count} player stats."
 
 schedules = Schedule.create([{
   date: DateTime.strptime('05/04/2019', '%m/%d/%Y'),
@@ -176,7 +188,7 @@ schedules = Schedule.create([{
   series_game: 8
 }])
 
-p "Added #{Schedule.count} games."
+p "Added #{Schedule.count} games and #{GameStat.count} game stats."
 
 selections = Selection.create([{
   user_id: 1,

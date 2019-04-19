@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one :player_stat, dependent: :destroy
+  after_create :create_player_stat
   has_many :selections
   has_many :schedules, through: :selections
   attr_accessor :remember_token, :activation_token, :reset_token

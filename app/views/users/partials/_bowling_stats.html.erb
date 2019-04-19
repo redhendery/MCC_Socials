@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">Mat</th>
+      <th scope="col">Inns</th>
+      <th scope="col">Balls</th>
+      <th scope="col">Runs</th>
+      <th scope="col">Wkts</th>
+      <th scope="col">BB</th>
+      <th scope="col">Ave</th>
+      <th scope="col">Econ</th>
+      <th scope="col">SR</th>
+      <th scope="col">Ct</th>
+      <th scope="col">RO</th>
+      <th scope="col">St</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+    	<td><%= @user.player_stat.games_played %></td>
+			<td><%= @user.player_stat.bowl_innings %></td>
+			<td><%= @user.player_stat.balls_bowled %></td>
+			<td><%= @user.player_stat.bowl_runs %></td>
+			<td><%= @user.player_stat.wickets %></td>
+      <td><%= @user.player_stat.best_bowling %></td>
+    	<td><%= bowling_average %></td>
+			<td><%= bowling_economy %></td>
+			<td><%= bowling_strike_rate %></td>
+			<td><%= @user.player_stat.catches %></td>
+			<td><%= @user.player_stat.run_outs %></td>
+			<td><%= @user.player_stat.stumpings %></td>
+    </tr>
+  </tbody>
+</table>

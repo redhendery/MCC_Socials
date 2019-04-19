@@ -5,6 +5,9 @@
   <% @schedule.users.each do |user| %>
     <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
     <%= label_tag dom_id(user), user.name %>
+    <p>Games played: </p>
+    <p>Signed up for: <%= user.selections.count %> games.</p>
+    <p>Last played: </p>
   <% end %>
 
   <%= submit_tag 'Save Lineup', class: 'btn btn-success', data: { confirm: 'Confirm Lineup?' } %>

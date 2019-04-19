@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">Mat</th>
+      <th scope="col">Inns</th>
+      <th scope="col">NO</th>
+      <th scope="col">Runs</th>
+      <th scope="col">HS</th>
+      <th scope="col">Ave</th>
+      <th scope="col">BF</th>
+      <th scope="col">SR</th>
+      <th scope="col">100s</th>
+      <th scope="col">50s</th>
+      <th scope="col">4s</th>
+      <th scope="col">6s</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+    	<td><%= @user.player_stat.games_played %></td>
+			<td><%= @user.player_stat.bat_innings %></td>
+			<td><%= @user.player_stat.not_outs %></td>
+			<td><%= @user.player_stat.bat_runs %></td>
+			<td><%= @user.player_stat.high_score %></td>
+    	<td><%= batting_average %></td>
+			<td><%= @user.player_stat.balls_faced %></td>
+			<td><%= bat_strike_rate %></td>
+			<td><%= @user.player_stat.hundreds %></td>
+			<td><%= @user.player_stat.fifties %></td>
+			<td><%= @user.player_stat.fours %></td>
+			<td><%= @user.player_stat.sixes %></td>
+    </tr>
+  </tbody>
+</table>

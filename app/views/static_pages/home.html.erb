@@ -1,9 +1,5 @@
-<% if logged_in? == false %>
-
+<% unless logged_in? %>
   <%= render 'static_pages/partials/not_logged_in' %>
-
 <% else  %>
-
-  <%= render 'static_pages/partials/logged_in' %>
-
+  <%= render 'static_pages/partials/logged_in' unless @upcoming.empty? && @previous.empty? %>
 <% end %>
