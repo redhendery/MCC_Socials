@@ -2,22 +2,22 @@
 
 <% if @schedule.date > Date.today %>
   <div class="row justify-content-around">
-    <div class="col-7">
+    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
       <%= render 'schedules/partials/match_centre' %>
     </div>
-    <div class="col-3">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
       <%= render 'schedules/partials/run_times' %>
     </div>
   </div>
   <%= render 'schedules/partials/logged_in' %>
 
 <% else %>
-<div class="row justify-content-around">
-  <div class="col-7">
-    <%= render 'schedules/partials/match_centre' %>
-    <%= render 'schedules/partials/scorecard' %>
+  <div class="row justify-content-around">
+    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
+      <%= render 'schedules/partials/match_centre' %>
+      <%= render 'schedules/partials/scorecard' %>
+    </div>
   </div>
-</div>
 <% end %>
 
 <%= render 'schedules/partials/admin_buttons' %>

@@ -68,7 +68,7 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:date, :opponent, :series_game, :location, user_ids: [])
+      params.require(:schedule).permit(:date, :opponent, :start_time, :series_game, :location, user_ids: [])
     end
 
     def admin_user

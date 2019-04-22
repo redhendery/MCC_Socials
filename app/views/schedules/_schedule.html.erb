@@ -12,7 +12,7 @@
       </h5>
     </div>
     <div class="card-body">
-      <p class="card-text">When: <%= schedule.date %></p>
+      <p class="card-text">When: <%= schedule.date.strftime('%A %B %d') %></p>
       <p class="card-text">Game <%= schedule.series_game %></p>
       <p class="card-text">Where: <%= schedule.location %></p>
 

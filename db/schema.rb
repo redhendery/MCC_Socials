@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_04_18_220013) do
 
   create_table "schedules", force: :cascade do |t|
     t.date "date"
+    t.time "start_time", default: "2000-01-01 10:45:00"
     t.string "opponent"
     t.integer "series_game"
     t.boolean "completed", default: false
