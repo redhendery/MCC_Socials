@@ -4,7 +4,7 @@
     <ul class="card-text">
       <li>Players arrive: <span class="float-right"><%= l @schedule.start_time - 30.minutes, format: :short %> am</span></li>
       <li>Coin Toss: <span class="float-right"><%= l @schedule.start_time - 20.minutes, format: :short %> am</span></li>
-      <li>Game Start: <span class="float-right"><%= l @schedule.start_time, format: :short %> am</span></li>
+      <li>Game Start: <span class="float-right"><%= @schedule.start_time.to_s(:time) %> am</span></li>
       <li>Lunch Break: <span class="float-right"><%= l @schedule.start_time + 3.5.hours, format: :short %> pm</span></li>
       <li>2nd Innings Start: <span class="float-right"><%= l @schedule.start_time + 4.hours, format: :short %> pm</span></li>
       <li>Game End: <span class="float-right"><%= l @schedule.start_time + 7.25.hours, format: :short %> pm</span></li>
