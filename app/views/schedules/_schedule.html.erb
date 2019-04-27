@@ -4,9 +4,9 @@
       <h5 class="card-title">
         <strong>
           <% if schedule.opponent == 'Intraclub' %>
-            <%= schedule.opponent %>
+            Socials <%= schedule.opponent %>
           <% else %>
-            Marin vs. <%= schedule.opponent %>
+            Marin <%= schedule.team %> vs. <%= schedule.opponent %>
           <% end %>
         </strong>
       </h5>
@@ -17,7 +17,7 @@
       <p class="card-text">Where: <%= schedule.location %></p>
 
       <% unless schedule.completed? || schedule.date < Date.today + 3 %>
-         <% if logged_in? && paid && next_week.cover?(schedule.date) %>
+         <% if schedule.team == 'Socials' && logged_in? && paid && next_week.cover?(schedule.date) %>
            <% if schedule.selections.find_by(user_id: current_user.id) %>
              <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
                  class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
@@ -28,12 +28,12 @@
       <% end %>
 
     </div>
-      <div class="card-footer">
-        <span><%= link_to 'Game Information', schedule %></span>
-        <% if admin_logged_in? %>
-          <span class="float-left"><%= link_to 'Edit Game', edit_schedule_path(schedule) %></span>
-          <span class="float-right"><%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %></span>
-        <% end %>
-      </div>
+    <div class="card-footer">
+      <span><%= link_to 'Game Information', schedule %></span>
+      <% if admin_logged_in? %>
+        <span class="float-left"><%= link_to 'Edit Game', edit_schedule_path(schedule) %></span>
+        <span class="float-right"><%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %></span>
+      <% end %>
+    </div>
   </div>
 </div>

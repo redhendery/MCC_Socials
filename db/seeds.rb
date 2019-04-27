@@ -1,71 +1,3 @@
-# users = User.create([{
-#   name: 'Mike Michaelson',
-#   email: 'mike@email.com',
-#   password: 'iammike',
-#   password_confirmation: 'iammike',
-#   role: 'All Rounder',
-#   bats: 'Left',
-#   bowls: 'Right',
-#   admin: true,
-#   paid: true,
-#   activated: true,
-#   activated_at: Time.zone.now
-# }, {
-#   name: 'Steve Stevenson',
-#   email: 'steve@email.com',
-#   password: 'iamsteve',
-#   password_confirmation: 'iamsteve',
-#   role: 'Bowler',
-#   bats: 'Left',
-#   bowls: 'Right',
-#   admin: false,
-#   paid: false,
-#   activated: true,
-#   activated_at: Time.zone.now
-# }])
-#
-# 5.times do |n|
-#   name = Faker::Name.name
-#   email = "example-#{n+1}@example.com"
-#   password = 'password'
-#   password_confirmation = 'password'
-#   User.create!(
-#     name: name,
-#     email: email,
-#     password: password,
-#     password_confirmation: password_confirmation,
-#     role: 'Bowler',
-#     bats: 'Right',
-#     bowls: 'Right',
-#     admin: false,
-#     paid: false,
-#     activated: true,
-#     activated_at: Time.zone.now
-#   )
-# end
-#
-# 5.times do |n|
-#   name = Faker::Name.name
-#   email = "donkey-#{n+1}@example.com"
-#   password = 'password'
-#   password_confirmation = 'password'
-#   User.create!(
-#     name: name,
-#     email: email,
-#     password: password,
-#     password_confirmation: password_confirmation,
-#     role: 'Batsmen',
-#     bats: 'Right',
-#     bowls: 'Right',
-#     admin: false,
-#     paid: true,
-#     activated: true,
-#     activated_at: Time.zone.now
-#   )
-# end
-
-p "Added #{User.count} Players and #{PlayerStat.count} player stats."
-
 schedules = Schedule.create([{
   date: DateTime.strptime('05/04/2019', '%m/%d/%Y'),
   opponent: 'Intraclub',
@@ -449,6 +381,74 @@ schedules = Schedule.create([{
 }])
 
 p "Added #{Schedule.where(team: 'Seconds').count} Seconds games and game stats"
+
+# users = User.create([{
+#   name: 'Mike Michaelson',
+#   email: 'mike@email.com',
+#   password: 'iammike',
+#   password_confirmation: 'iammike',
+#   role: 'All Rounder',
+#   bats: 'Left',
+#   bowls: 'Right',
+#   admin: true,
+#   paid: true,
+#   activated: true,
+#   activated_at: Time.zone.now
+# }, {
+#   name: 'Steve Stevenson',
+#   email: 'steve@email.com',
+#   password: 'iamsteve',
+#   password_confirmation: 'iamsteve',
+#   role: 'Bowler',
+#   bats: 'Left',
+#   bowls: 'Right',
+#   admin: false,
+#   paid: false,
+#   activated: true,
+#   activated_at: Time.zone.now
+# }])
+#
+# 5.times do |n|
+#   name = Faker::Name.name
+#   email = "example-#{n+1}@example.com"
+#   password = 'password'
+#   password_confirmation = 'password'
+#   User.create!(
+#     name: name,
+#     email: email,
+#     password: password,
+#     password_confirmation: password_confirmation,
+#     role: 'Bowler',
+#     bats: 'Right',
+#     bowls: 'Right',
+#     admin: false,
+#     paid: false,
+#     activated: true,
+#     activated_at: Time.zone.now
+#   )
+# end
+#
+# 5.times do |n|
+#   name = Faker::Name.name
+#   email = "donkey-#{n+1}@example.com"
+#   password = 'password'
+#   password_confirmation = 'password'
+#   User.create!(
+#     name: name,
+#     email: email,
+#     password: password,
+#     password_confirmation: password_confirmation,
+#     role: 'Batsmen',
+#     bats: 'Right',
+#     bowls: 'Right',
+#     admin: false,
+#     paid: true,
+#     activated: true,
+#     activated_at: Time.zone.now
+#   )
+# end
+
+# p "Added #{User.count} Players and #{PlayerStat.count} player stats."
 
 # selections = Selection.create([{
 #   user_id: 1,
