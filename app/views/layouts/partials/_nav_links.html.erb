@@ -1,7 +1,4 @@
 <li class="nav-item">
-  <%= link_to 'Schedule', schedules_path, class: 'nav-link' %>
-</li>
-<li class="nav-item">
   <%= link_to 'Players', users_path, class: 'nav-link' %>
 </li>
 <li class="nav-item">
@@ -15,4 +12,18 @@
 </li>
 <li class="nav-item">
   <%= link_to 'Memberships', membership_path, class: 'nav-link' unless logged_in? && current_user.paid? %>
+</li>
+<li class="dropdown">
+	<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Schedules</a>
+	<ul class="dropdown-menu">
+    <li class="nav-item">
+      <%= link_to 'Socials', socials_schedules_path, class: 'dropdown-item' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'First XI', firsts_schedules_path, class: 'dropdown-item' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Second XI', seconds_schedules_path, class: 'dropdown-item' %>
+    </li>
+  </ul>
 </li>

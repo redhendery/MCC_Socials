@@ -47,9 +47,10 @@ ActiveRecord::Schema.define(version: 2019_04_18_220013) do
     t.date "date"
     t.time "start_time", default: "2000-01-01 10:45:00"
     t.string "opponent"
+    t.string "team"
     t.integer "series_game"
+    t.string "location"
     t.boolean "completed", default: false
-    t.string "location", default: "Piper Park, Larkspur"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

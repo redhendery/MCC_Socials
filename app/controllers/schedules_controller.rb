@@ -4,8 +4,16 @@ class SchedulesController < ApplicationController
   after_action :completed, only: [:edit, :update, :new, :create]
   after_action :not_completed, only: [:edit, :update]
 
-  def index
-    @schedules = Schedule.where(nil).order(date: :asc)
+  def socials
+    @schedules = Schedule.where(team: 'Socials').order(date: :asc)
+  end
+
+  def firsts
+    @schedules = Schedule.where(team: 'Firsts').order(date: :asc)
+  end
+
+  def seconds
+    @schedules = Schedule.where(team: 'Seconds').order(date: :asc)
   end
 
   def show
@@ -68,7 +76,7 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:date, :opponent, :start_time, :series_game, :location, user_ids: [])
+      params.require(:schedule).permit(:date, :opponent, :start_time, :series_game, :team, :location, user_ids: [])
     end
 
     def admin_user

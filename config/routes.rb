@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   end
 
   resources :schedules do
+    collection do
+      get :socials, :firsts, :seconds
+    end
     member do
       get :available, :unavailable
     end
