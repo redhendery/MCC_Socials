@@ -1,5 +1,9 @@
 <% unless logged_in? %>
   <%= render 'static_pages/partials/not_logged_in' %>
 <% else  %>
-  <%= render 'static_pages/partials/logged_in' unless @upcoming.empty? && @previous.empty? %>
+  <% if @upcoming.empty? %>
+    <h3>There are no games this weekend.</h3>
+  <% else %>
+    <%= render 'static_pages/partials/logged_in' unless @upcoming.empty? && @previous.empty? %>
+  <% end %>
 <% end %>

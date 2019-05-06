@@ -3,6 +3,14 @@
 <h1 class="text-center">About Us</h1>
 
 <div class="row justify-content-around">
+  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+    <div class="card">
+      <%= image_tag('MCC_1951.png', alt: 'Marin Cricket Club photo from 1951', class: 'card-img-top') %>
+    </div>
+    <div class="card-body">
+      <p class="card-text text-center"><small class="font-weight-bold">Marin Cricket Club in 1951</small></p>
+    </div>
+  </div>
   <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
     <p>
       Welcome to the Marin Cricket Club! Our goal is to play and promote cricket in the Bay Area in a fun, relaxed and inclusive environment.
@@ -24,29 +32,32 @@
       If you are interested in playing with us, please <%= link_to 'Contact Us', contact_index_path, target: 'blank' %>.
     </p>
   </div>
-
-  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-    <div class="card">
-      <%= image_tag('MCC_1951.png', alt: 'Marin Cricket Club photo from 1951', class: 'card-img-top') %>
-    </div>
-    <div class="card-body">
-      <p class="card-text text-center"><small class="font-weight-bold">Marin Cricket Club in 1951</small></p>
-    </div>
-  </div>
 </div>
 
-<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-  <h4>Club Officers</h4>
-  <ul>
-    <li>Chairman - Nick Lynam</li>
-    <li>Club Secretary - Minesh Govenji</li>
-    <li>Treasurer - Singh Virk</li>
-    <li>1st XI Captain - Rahul Khona</li>
-    <li>2nd XI Captain - Manish Sharma</li>
-    <li>Social Captain - Vishnu Chapalamadugu</li>
-    <li>Selection - Ozair Nana</li>
-    <li>Grounds Director - Bhagya Bakshi</li>
-    <li>Club Statistician - Manish Sharma</li>
-    <li>Webmaster - Red Hendery</li>
-  </ul>
+<div class="row">
+  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 float-left">
+    <h4>Club Officers</h4>
+    <ul>
+      <li>Chairman - Nick Lynam</li>
+      <li>Club Secretary - Minesh Govenji</li>
+      <li>Treasurer - Singh Virk</li>
+      <li>1st XI Captain - Rahul Khona</li>
+      <li>2nd XI Captain - Manish Sharma</li>
+      <li>Social Captain - Vishnu Chapalamadugu</li>
+      <li>Selection - Ozair Nana</li>
+      <li>Grounds Director - Bhagya Bakshi</li>
+      <li>Club Statistician - Manish Sharma</li>
+      <li>Webmaster - Red Hendery</li>
+    </ul>
+  </div>
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+    <div style="padding:22% 0 0 0;position:relative;">
+
+      <iframe src="https://player.vimeo.com/video/243215851?byline=0&portrait=0"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;"
+              frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      </iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
 </div>
