@@ -13,5 +13,14 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+  <%= f.label :role %>
+  <%= f.select :role , ['Batsmen', 'Bowler', 'Wicketkeeper', 'All Rounder'], {}, class: 'form-control' %>
+
+  <%= f.label :bats %>
+  <%= f.select :bats , ['Left', 'Right'], {}, class: 'form-control' %>
+
+  <%= f.label :bowls %>
+  <%= f.select :bowls , ['Left', 'Right'], {}, class: 'form-control' %>
+
   <%= f.submit yield(:button_text), class:'btn btn-primary' %>
 <% end %>

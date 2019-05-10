@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_220013) do
+ActiveRecord::Schema.define(version: 2019_05_08_193945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,9 +50,14 @@ ActiveRecord::Schema.define(version: 2019_04_18_220013) do
     t.string "team"
     t.integer "series_game"
     t.string "location"
-    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "away_score"
+    t.integer "away_wickets"
+    t.float "away_overs"
+    t.integer "home_score"
+    t.integer "home_wickets"
+    t.float "home_overs"
   end
 
   create_table "selections", force: :cascade do |t|
@@ -68,8 +73,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_220013) do
     t.string "name"
     t.string "email"
     t.string "role"
-    t.string "bats"
-    t.string "bowls"
+    t.string "bats", default: "Right"
+    t.string "bowls", default: "Right"
     t.boolean "paid", default: false
     t.boolean "admin", default: false
     t.datetime "created_at", null: false

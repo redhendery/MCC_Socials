@@ -1,9 +1,9 @@
 <% provide(:title, 'Sponsors') %>
 
-<h1 class="text-center">Our Sponsor</h1>
+<h1 class="text-center">Our Sponsors</h1>
 
 <div class="row">
-  <div class="col-xl-9 col-lg-9 col-md-6 col-sm-12 col-12 col-xs-12">
+  <div class="col-xl-10 col-lg-10 col-md-6 col-sm-12 col-12 col-xs-12">
     <p>
       Marin Cricket Club is proud to be partnered with
       <%= link_to 'New York Life', 'https://www.newyorklife.com', target: 'blank' %>.
@@ -19,8 +19,31 @@
       directly for any of your insurance needs.</p>
   </div>
 
-  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 col-xs-12 text-center">
+  <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12 col-xs-12 text-center">
     <%= link_to image_tag('nyl_logo.png', alt: 'New York Life'),
         'https://www.newyorklife.com', target: 'blank', class: 'img-fluid' %>
+  </div>
+</div>
+
+<div class="row" style="padding-top:30px">
+  <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12 col-xs-12">
+    <%= link_to image_tag('nyl_logo.png', alt: 'New York Life'),
+        'https://www.newyorklife.com', target: 'blank', class: 'img-fluid' %>
+  </div>
+
+  <div class="col-xl-10 col-lg-10 col-md-6 col-sm-12 col-12 col-xs-12">
+    <p>
+      We are beyond pleased to welcome our newest sponsor Omnipro on board!
+      <%= link_to 'Omnipro', 'https://omnipro.com', target: 'blank' %>.
+      We greatly appreciate their support and look forward to a long fruitful relationship.
+    </p>
+
+    <p>For the year 2019, the NY Life T20 Cricket Festival will be on Saturday July 27th.</p>
+
+    <p>This year, team India will be defending the NY Life Trophy for the first time after last years stunning final over win in the final!</p>
+
+    <p>Please contact insurance expert
+      <%= mail_to 'mbakshi@ft.newyorklife.com', 'Mani Bakshi', target: 'blank' %>
+      directly for any of your insurance needs.</p>
   </div>
 </div>

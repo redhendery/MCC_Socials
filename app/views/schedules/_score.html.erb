@@ -1,0 +1,23 @@
+<%= form_for(@schedule) do |f| %>
+
+  <%= f.label :marin_score %>
+  <%= f.number_field :home_score, class: 'form-control' %>
+
+  <%= f.label :marin_wickets %>
+  <%= f.number_field :home_wickets, class: 'form-control' %>
+
+  <%= f.label :marin_overs %>
+  <%= f.text_field :home_overs, class: 'form-control' %>
+
+  <%= f.label :opponent_score %>
+  <%= f.number_field :away_score, class: 'form-control' %>
+
+  <%= f.label :opponent_wickets %>
+  <%= f.number_field :away_wickets, class: 'form-control' %>
+
+  <%= f.label :opponent_overs %>
+  <%= f.text_field :away_overs, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class:'btn btn-primary' %>
+
+<% end %>

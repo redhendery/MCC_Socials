@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title"><strong>Match Centre</strong></h5>
-    <p class="card-text small"><%= @schedule.id.ordinalize %> Socials Match of <%= @schedule.date.year %>. Played at <%= @schedule.location %></p>
+    <p class="card-text small"><%= @schedule.id.ordinalize %> <%= @schedule.team %> Match of <%= @schedule.date.year %>. Played at <%= @schedule.location %></p>
     <ul class="card-text">
       <li><%= @schedule.opponent %></li>
       <li>Game <%= @schedule.series_game %> of <%= @no_of_games %></li>
@@ -9,3 +9,60 @@
     </ul>
   </div>
 </div>
+
+<% if @schedule.date < Date.today %>
+
+  <div class="card">
+    <div class="card-body text-center">
+
+      <% if @schedule.opponent == 'Intraclub' %>
+        <div class="row">
+          <div class="col-6">
+            <h2><bold>Marin Bears</bold></h2>
+            <h5 class="card-text"><%= @schedule.home_score %>/<%= @schedule.home_wickets %></h5>
+            <h5 class="card-text"><%= @schedule.home_overs %></h5>
+          </div>
+          <div class="col-6">
+            <h2><bold>Marin Eagles</bold></h2>
+            <h5 class="card-text"><%= @schedule.away_score %>/<%= @schedule.away_wickets %></h5>
+            <h5 class="card-text"><%= @schedule.away_overs %></h5>
+          </div>
+          <div class="col-12">
+            <br>
+            <br>
+            <% if @schedule.home_score > @schedule.away_score %>
+              <h1>Bears win!</h1>
+            <% else %>
+              <h1>Eagles win!</h1>
+            <% end %>
+          </div>
+        </div>
+
+      <% else %>
+
+        <div class="row">
+          <div class="col-6">
+            <h2><bold>Marin <%= @schedule.team %></bold></h2>
+            <h5 class="card-text"><%= @schedule.home_score %>/<%= @schedule.home_wickets %></h5>
+            <h5 class="card-text"><%= @schedule.home_overs %></h5>
+          </div>
+          <div class="col-6">
+            <h2><bold><%= @schedule.opponent %></bold></h2>
+            <h5 class="card-text"><%= @schedule.away_score %>/<%= @schedule.away_wickets %></h5>
+            <h5 class="card-text"><%= @schedule.away_overs %></h5>
+          </div>
+          <div class="col-12">
+            <br>
+            <br>
+            <% if @schedule.home_score > @schedule.away_score %>
+              <h1><%= @schedule.team %> win!</h1>
+            <% else %>
+              <h1><%= @schedule.opponent %> win</h1>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+<% end %>

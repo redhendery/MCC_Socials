@@ -301,7 +301,7 @@ schedules = Schedule.create([{
   location: 'Piper Park, Larkspur',
   series_game: 1
 }, {
-  date: DateTime.strptime('09/28/2019', '%m/%d/%Y'),
+  date: DateTime.strptime('05/11/2019', '%m/%d/%Y'),
   opponent: 'East Bay Jaguars',
   team: 'Seconds',
   location: 'Away',

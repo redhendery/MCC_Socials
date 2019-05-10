@@ -4,11 +4,14 @@
   <%= f.label :date %>
   <%= f.date_field :date, class: 'form-control' %>
 
+  <%= f.label :team %>
+  <%= f.select :team, ['Firsts', 'Seconds', 'Socials'], {}, class: 'form-control' %>
+
   <%= f.label :opponent %>
   <%= f.text_field :opponent, class: 'form-control' %>
 
   <%= f.label :start_time %>
-  <%= f.time_select :start_time, class: 'form-control' %>
+  <%= f.time_select :start_time, {}, class: 'form-control' %>
 
   <%= f.label :Series_Game %>
   <%= f.text_field :series_game, class: 'form-control' %>

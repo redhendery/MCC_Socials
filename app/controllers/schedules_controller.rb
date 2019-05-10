@@ -1,8 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :logged_in?, only: [:available, :unavailable]
   before_action :admin_user, only: [:new, :create, :edit, :destroy]
-  after_action :completed, only: [:edit, :update, :new, :create]
-  after_action :not_completed, only: [:edit, :update]
 
   def socials
     @schedules = Schedule.where(team: 'Socials').order(date: :asc)
@@ -76,21 +74,15 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:date, :opponent, :start_time, :series_game, :team, :location, user_ids: [])
+      params.require(:schedule).permit(:date, :opponent, :start_time, :series_game,
+                                  :team, :location, :home_score, :home_wickets, :home_overs,
+                                  :away_score, :away_wickets, :away_overs, user_ids: [])
     end
 
     def admin_user
       if admin_logged_in?
       else redirect_to root_url
       end
-    end
-
-    def completed
-      Schedule.where('date < ?', Date.today).update_all(completed: true)
-    end
-
-    def not_completed
-      Schedule.where('date > ?', Date.today).update_all(completed: false)
     end
 
 end
