@@ -53,7 +53,7 @@ class SchedulesController < ApplicationController
   def destroy
     Schedule.find(params[:id]).destroy
     flash[:success] = 'Game deleted'
-    redirect_to schedules_url
+    redirect_to root_url
   end
 
   def available
