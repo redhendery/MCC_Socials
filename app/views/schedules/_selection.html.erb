@@ -1,13 +1,20 @@
 <%= form_for(@schedule) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
+  <p>Total Player Signups: <%= @schedule.selections.count %></p>
+
   <%= hidden_field_tag 'schedule[user_ids][]', nil %>
   <% @schedule.users.each do |user| %>
     <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
-    <%= label_tag dom_id(user), user.name %>
-    <p>Games played: </p>
-    <p>Signed up for: <%= user.selections.count %> games.</p>
-    <p>Last played: </p>
+    <p><strong><%= label_tag dom_id(user), user.name %></strong></p>
+    <p>Games played: <%= user.selections.count - 1 %></p>
+    <p>Last played:
+      <% if user.selections[-2].blank? %>
+        None
+      <% else %>
+        <%= user.selections[-2].schedule.date.strftime('%A %B %d') %>
+      <% end %>
+    </p>
   <% end %>
 
   <%= submit_tag 'Save Lineup', class: 'btn btn-success', data: { confirm: 'Confirm Lineup?' } %>
