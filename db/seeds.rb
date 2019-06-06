@@ -383,7 +383,8 @@ schedules = Schedule.create([{
 p "Added #{Schedule.where(team: 'Seconds').count} Seconds games and game stats"
 
 # users = User.create([{
-#   name: 'Mike Michaelson',
+#   name: 'Mike',
+#   surname: 'Michaelson',
 #   email: 'mike@email.com',
 #   password: 'iammike',
 #   password_confirmation: 'iammike',
@@ -395,7 +396,8 @@ p "Added #{Schedule.where(team: 'Seconds').count} Seconds games and game stats"
 #   activated: true,
 #   activated_at: Time.zone.now
 # }, {
-#   name: 'Steve Stevenson',
+#   name: 'Steve',
+#   surname: 'Stevenson',
 #   email: 'steve@email.com',
 #   password: 'iamsteve',
 #   password_confirmation: 'iamsteve',
@@ -415,6 +417,7 @@ p "Added #{Schedule.where(team: 'Seconds').count} Seconds games and game stats"
 #   password_confirmation = 'password'
 #   User.create!(
 #     name: name,
+#     surname: name,
 #     email: email,
 #     password: password,
 #     password_confirmation: password_confirmation,
@@ -435,6 +438,7 @@ p "Added #{Schedule.where(team: 'Seconds').count} Seconds games and game stats"
 #   password_confirmation = 'password'
 #   User.create!(
 #     name: name,
+#     surname: name,
 #     email: email,
 #     password: password,
 #     password_confirmation: password_confirmation,
@@ -447,9 +451,9 @@ p "Added #{Schedule.where(team: 'Seconds').count} Seconds games and game stats"
 #     activated_at: Time.zone.now
 #   )
 # end
-
+#
 # p "Added #{User.count} Players and #{PlayerStat.count} player stats."
-
+#
 # selections = Selection.create([{
 #   user_id: 1,
 #   schedule_id: 1
