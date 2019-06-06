@@ -7,7 +7,7 @@
   <% @schedule.users.each do |user| %>
     <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
     <p><strong><%= label_tag dom_id(user), user.name %></strong></p>
-    <p>Games played: <%= user.selections.count - 1 %></p>
+    <p>Games played: <%= user.player_stat.games_played %></p>
     <p>Last played:
       <% if user.selections[-2].blank? %>
         None
