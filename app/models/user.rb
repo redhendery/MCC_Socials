@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :selections
   has_many :schedules, through: :selections
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save :downcase_email
+  before_save :downcase_email, :capitalize_name, :capitalize_surname
   before_create :create_activation_digest
   validates :name, :surname, presence: true, length: { minimum: 3, maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -66,6 +66,14 @@ class User < ApplicationRecord
   end
 
   private
+
+    def capitalize_name
+      self.name = self.name.capitalize
+    end
+
+    def capitalize_surname
+      self.surname = self.surname.capitalize
+    end
 
     def downcase_email
       self.email = email.downcase
