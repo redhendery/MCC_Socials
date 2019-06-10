@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @user.name + ' ' + @user.surname) %>
 <div class="row">
   <aside class="col">
     <section class="user_info">
@@ -20,10 +20,19 @@
 	<%= render 'users/partials/bowling_stats' %>
 </div>
 
+<% if admin_logged_in? %>
+  <%= mail_to @user.email %>
+<% end %>
+
 <% unless @user.paid? %>
   <p>
-    Please click the link below to to pay your membership dues.
-    <b>You are unable to sign up for games until your fees have been paid.</b>
+    If you have already paid membership dues, please
+    <%= mail_to('redhendery@gmail.com', 'email Red', target: 'blank', subject: 'Account Created on marincricketclub.com') %>
+    and let him know you have created an account.
+  </p>
+  <p>
+    If you have not paid your membership dues, please click the link below:
+    <b>You are unable to sign up for Socials games until your dues have been paid.</b>
   </p>
   <%= link_to 'Memberships', membership_path, class: 'btn btn-lg btn-primary' %>
 <% end %>
