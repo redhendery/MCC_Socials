@@ -5,13 +5,13 @@
 
   <h1>Update Game</h1>
   <div class="form-group row justify-content-around">
-    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 col-12">
+    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
       <h3>Update Game Details</h3>
       <%= render 'form' %>
     </div>
 
     <% if @schedule.date < Date.today %>
-    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 col-12">
+    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
         <h3>Game Score</h3>
         <%= render 'score' %>
       </div>
@@ -22,7 +22,7 @@
 
   <h1>Update Game</h1>
   <div class="form-group row justify-content-around">
-    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 col-12">
+    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
       <h3>Update Game Details</h3>
       <%= render 'form' %>
     </div>
@@ -35,7 +35,7 @@
     <% else %>
 
       <% if @schedule.date < Date.today %>
-      <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 col-12">
+      <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
           <h3>Game Score</h3>
           <%= render 'score' %>
         </div>

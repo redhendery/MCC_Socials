@@ -6,7 +6,7 @@
     <%= link_to 'Sign Up for Selection', membership_path, class: 'btn btn-success' %>
   <% end %>
 
-  <% unless @schedule.date < Date.today + 65.5.hours %>
+  <% unless @schedule.date < Date.today + 77.5.hours %>
     <% if @schedule.team == 'Socials' && logged_in? && paid && next_week.cover?(@schedule.date) %>
       <% if @available %>
         <%= link_to 'Withdraw from Selection', unavailable_schedule_path(@schedule),
