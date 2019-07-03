@@ -1,0 +1,13 @@
+<p>Hello</p>
+
+<% if @schedule.first.opponent == 'Intraclub' %>
+  <p>
+    The Socials have an <%= @schedule.first.opponent %> game this weekend! Click the link below to sign up to play!
+  </p>
+<% else %>
+  <p>
+    The Socials have a game this weekend against <%= @schedule.first.opponent %>! Click the link below to sign up to play!
+  </p>
+<% end %>
+
+<%= link_to 'Sign Up to Play', schedule_url(@schedule.first) %>

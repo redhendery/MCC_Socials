@@ -1,16 +1,24 @@
 <li>
-  <% if user.avatar.attached? %>
-    <%= image_tag @user.avatar %>
-  <% end %>
-  <%= link_to user.name, user %>
+  <%= gravatar_for user, size: 50 %>
+  <%= link_to user.name + ' ' + user.surname, user %>
 
   <% if admin_logged_in? %>
-    <%= link_to 'Delete', user,class: 'btn btn-danger float-right',  method: :delete,
-        data: { confirm: 'You sure brah? ' + user.name + ' will be PERMANENTLY DELETED from the database.'} %>
-    <% if user.paid? == false %>
-      <%= link_to 'Paid Fees', paid_user_path(user), class: 'btn btn-success float-right',
-                  method: :put, data: { confirm: user.name + ' has paid fees?' } %>
-    <% end %>
+
+      <%= link_to 'Delete', user, class: 'btn btn-danger float-right',  method: :delete,
+          data: { confirm: 'You sure brah? ' + user.name + ' will be PERMANENTLY DELETED from the database.'} %>
+
+      <%= link_to 'Paid Fees', paid_user_path(user),
+          class: 'btn btn-success float-right', method: :put,
+          data: { confirm: user.name + ' has paid fees?' } unless user.paid? %>
+
+      <%= link_to 'Make Admin', admin_user_path(user),
+          class: 'btn btn-warning float-right', method: :put,
+          data: { confirm: 'Give ' + user.name + ' Admin User rights?' } unless user.admin? %>
+
+      <%= link_to 'Remove Admin', remove_admin_user_path(user),
+          class: 'btn btn-secondary float-right', method: :put,
+          data: { confirm: 'Remove ' + user.name + ' Admin User rights?' } if user.admin? %>
+
   <% end %>
 
 </li>

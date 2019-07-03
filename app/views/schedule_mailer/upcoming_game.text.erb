@@ -1,0 +1,9 @@
+Hello
+
+<% if @schedule.first.opponent == 'Intraclub' %>
+The Socials have an <%= @schedule.first.opponent %> game this weekend! Copy and paste this link into your browser to sign up!
+<% else %>
+The Socials have a game this weekend against <%= @schedule.first.opponent %>! Copy and paste this link into your browser to sign up!
+<% end %>
+
+<%= schedule_url(@schedule.first) %>

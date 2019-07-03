@@ -11,8 +11,13 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  test 'name should be present' do
+  test 'first name should be present' do
     @user.name = '      '
+    assert_not @user.valid?
+  end
+
+  test 'surname should be present' do
+    @user.surname = '      '
     assert_not @user.valid?
   end
 
@@ -29,6 +34,18 @@ class UserTest < ActiveSupport::TestCase
   test 'email should not be to long' do
     @user.email = 'a' * 244 + '@example.com'
     assert_not @user.valid?
+  end
+
+  test 'first name gets capitalized' do
+    @user.name = 'dave'
+    @user.capitalize_name
+    assert @user.valid
+  end
+
+  test 'surname gets capitalized' do
+    @user.surname = 'dave'
+    @user.capitalize_surname
+    assert @user.valid
   end
 
   test 'email validation should accept valid addresses' do

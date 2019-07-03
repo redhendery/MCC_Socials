@@ -1,12 +1,11 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><strong>Match Centre</strong></h5>
+    <h5 class="card-title"><strong>Socials Team</strong></h5>
 
     <% @schedule.users.each do |user| %>
       <ul class="card-text">
-        <li><%= user.name %></li>
+        <li><%= user.name %> <%= user.surname %></li>
       </ul>
     <% end %>
-    <li>Extras</li>
   </div>
 </div>

@@ -1,16 +1,41 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @user.name + ' ' + @user.surname) %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col">
     <section class="user_info">
-      <h1>
-        <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar %>
-        <% end %>
-        <%= @user.name %>
-      </h1>
+      <h1 class="float-left"><%= @user.name %> <%= @user.surname %></h1>
     </section>
+      <p>Role: <%= @user.role %></p>
+      <p>Bats: <%= @user.bats %></p>
+      <p>Bowls: <%= @user.bowls %></p>
   </aside>
+  <%= gravatar_for @user %>
 </div>
+
+<div class="table-responsive">
+  <h6 class="text-muted">Batting Averages</h6>
+	<%= render 'users/partials/batting_stats' %>
+</div>
+<div class="table-responsive">
+  <h6 class="text-muted">Bowling and Feilding Averages</h6>
+	<%= render 'users/partials/bowling_stats' %>
+</div>
+
+<% if admin_logged_in? %>
+  <%= mail_to @user.email %>
+<% end %>
+
+<% unless @user.paid? %>
+  <p>
+    If you have already paid membership dues, please
+    <%= mail_to('redhendery@gmail.com', 'email Red', target: 'blank', subject: 'Account Created on marincricketclub.com') %>
+    and let him know you have created an account.
+  </p>
+  <p>
+    If you have not paid your membership dues, please click the link below:
+    <b>You are unable to sign up for Socials games until your dues have been paid.</b>
+  </p>
+  <%= link_to 'Memberships', membership_path, class: 'btn btn-lg btn-primary' %>
+<% end %>
 
 <% if admin_logged_in? %>
   <%= render 'admin_buttons' %>

@@ -1,10 +1,20 @@
-<% unless @schedule.completed? %>
-  <% if logged_in? && paid && next_week.cover?(@schedule.date) %>
-    <% if @available %>
-      <%= link_to 'Withdraw from Selection', unavailable_schedule_path(@schedule),
-          class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
-    <% else %>
-      <%= link_to 'Sign Up for Selection', available_schedule_path(@schedule), class: 'btn btn-success' %>
+<% if @schedule.team == 'Socials' %>
+
+  <% if logged_in? == false && next_week.cover?(@schedule.date) %>
+    <%= link_to 'Sign Up for Selection', login_path, class: 'btn btn-success' %>
+  <% elsif logged_in? && current_user.paid == false %>
+    <%= link_to 'Sign Up for Selection', membership_path, class: 'btn btn-success' %>
+  <% end %>
+
+  <% unless @schedule.date < Date.today + 54.5.hours %>
+    <% if @schedule.team == 'Socials' && logged_in? && paid && next_week.cover?(@schedule.date) %>
+      <% if @available %>
+        <%= link_to 'Withdraw from Selection', unavailable_schedule_path(@schedule),
+            class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
+      <% else %>
+        <%= link_to 'Sign Up for Selection', available_schedule_path(@schedule), class: 'btn btn-success' %>
+      <% end %>
     <% end %>
   <% end %>
+
 <% end %>

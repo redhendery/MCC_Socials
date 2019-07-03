@@ -2,28 +2,47 @@
 
 <h1 class="text-center">Pay Your 2019 Season Membership Dues</h1>
 
-<div class="col">
-  <p>Membership dues and Socials match fees are to be paid via Venmo. You will not be able to sign up for games until you have paid your dues.</p>
+<p>Membership dues and Socials match fees are to be paid via PayPal. You will not be able to sign up for Socials games until you have paid your dues.</p>
+</br>
 
-  <div class="row justify-content-around">
-    <div class="col">
-      <h4>Full Membership: $375</h4>
-      <h4>Student Membership: $200</h4>
-      <h4>Viewer Membership: $50</h4>
+<div class="row membership-tiers">
+  <div class="col-xl-9 col-lg-9 col-md-6 col-sm-12 col-12 col-xs-12">
+    <div class="row">
+      <h3>Full Membership: $375</h3>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="VMX8UZUL3CR5S">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
     </div>
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 col-xs-12 text-center">
-      <%= image_tag('mcc_logo.png', alt: 'Marin Cricket Club Venmo QR Code', class: 'img-fluid') %>
+    <div class="row">
+      <h3>Student Membership: $200</h3>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="4N44Q5HY285WQ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
     </div>
+    <div class="row">
+      <h3>Viewer Membership: $50</h3>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="UAFLWQ6JMMXSS">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 col-xs-12 text-center">
+    <%= image_tag('mcc_logo.png', alt: 'Marin Cricket Club Logo', class: 'img-fluid') %>
   </div>
 </div>
 
-<div class="row justify-content-around">
-  <div class="col">
-    <p>Don't have Venmo? Download the app onto your phone from the relevant link below.</p>
-    <%= link_to image_tag('app_store.png', alt: 'Venmo App on the Apple App Store'),
-        'https://itunes.apple.com/us/app/venmo/id351727428?mt=8', target: 'blank', class: 'img-fluid' %>
+<p>Don't have PayPal? Download the app onto your phone from the relevant link below.</p>
+<%= link_to image_tag('app_store.png', alt: 'PayPal App on the Apple App Store'),
+    'https://itunes.apple.com/us/app/paypal-mobile-cash/id283646709?mt=8', target: 'blank', class: 'img-fluid' %>
 
-      <%= link_to image_tag('play_store.png', alt: 'Venmo App on the Google Play Store'),
-          'https://play.google.com/store/apps/details?id=com.venmo', target: 'blank', class: 'img-fluid' %>
-  </div>
-</div>
+  <%= link_to image_tag('play_store.png', alt: 'PayPal App on the Google Play Store'),
+      'https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile&hl=en_US', target: 'blank', class: 'img-fluid' %>

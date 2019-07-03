@@ -1,11 +1,17 @@
 class SchedulesController < ApplicationController
   before_action :logged_in?, only: [:available, :unavailable]
   before_action :admin_user, only: [:new, :create, :edit, :destroy]
-  after_action :completed, only: [:edit, :update, :new, :create]
-  after_action :not_completed, only: [:edit, :update]
 
-  def index
-    @schedules = Schedule.where(nil).order(date: :asc)
+  def socials
+    @schedules = Schedule.where(team: 'Socials').order(date: :asc)
+  end
+
+  def firsts
+    @schedules = Schedule.where(team: 'Firsts').order(date: :asc)
+  end
+
+  def seconds
+    @schedules = Schedule.where(team: 'Seconds').order(date: :asc)
   end
 
   def show
@@ -32,7 +38,6 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
-    @available = @schedule.selections.find_by(user_id: current_user.id)
   end
 
   def update
@@ -48,7 +53,7 @@ class SchedulesController < ApplicationController
   def destroy
     Schedule.find(params[:id]).destroy
     flash[:success] = 'Game deleted'
-    redirect_to schedules_url
+    redirect_to root_url
   end
 
   def available
@@ -69,21 +74,15 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:date, :opponent, :series_game, :location, user_ids: [])
+      params.require(:schedule).permit(:date, :opponent, :start_time, :series_game,
+                                  :team, :location, :home_score, :home_wickets, :home_overs,
+                                  :away_score, :away_wickets, :away_overs, user_ids: [])
     end
 
     def admin_user
       if admin_logged_in?
       else redirect_to root_url
       end
-    end
-
-    def completed
-      Schedule.where('date < ?', Date.today).update_all(completed: true)
-    end
-
-    def not_completed
-      Schedule.where('date > ?', Date.today).update_all(completed: false)
     end
 
 end

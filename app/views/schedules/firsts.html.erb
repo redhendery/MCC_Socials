@@ -1,0 +1,11 @@
+<% provide(:title, 'First XI Games') %>
+<h1>2019 First XI Schedule</h1>
+<div class="row">
+  <% @schedules.each do |schedule| %>
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+      <%= render schedule %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Add Game', new_schedule_path, class: 'btn btn-lg btn-primary' if admin_logged_in? %>

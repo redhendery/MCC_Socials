@@ -4,36 +4,103 @@
       <h5 class="card-title">
         <strong>
           <% if schedule.opponent == 'Intraclub' %>
-            <%= schedule.opponent %>
+            <%= schedule.opponent %> - Bears vs. Eagles
           <% else %>
-            Marin Socials vs. <%= schedule.opponent %>
+            Marin <%= schedule.team %> vs. <%= schedule.opponent %>
           <% end %>
         </strong>
       </h5>
     </div>
-    <div class="card-body">
-      <p class="card-text">When: <%= schedule.date %></p>
-      <p class="card-text">Game <%= schedule.series_game %></p>
-      <p class="card-text">Where: <%= schedule.location %></p>
 
-      <% unless schedule.completed? %>
-         <% if logged_in? && paid && next_week.cover?(schedule.date) %>
-           <% if schedule.selections.find_by(user_id: current_user.id) %>
-             <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
+    <div class="card-body">
+      <% unless schedule.home_score.nil? %>
+
+        <% if schedule.opponent == 'Intraclub' %>
+
+          <div class="row">
+            <div class="col-6">
+              <h4><bold>Marin Bears</bold></h4>
+              <h5 class="card-text"><%= schedule.home_score %>/<%= schedule.home_wickets %></h5>
+              <h5 class="card-text"><%= schedule.home_overs %></h5>
+            </div>
+            <div class="col-6">
+              <h4><bold>Marin Eagles</bold></h4>
+              <h5 class="card-text"><%= schedule.away_score %>/<%= schedule.away_wickets %></h5>
+              <h5 class="card-text"><%= schedule.away_overs %></h5>
+            </div>
+            <div class="col-12">
+              <br>
+              <br>
+              <% if schedule.home_score > schedule.away_score %>
+                <h1>Bears win!</h1>
+              <% else %>
+                <h1>Eagles win!</h1>
+              <% end %>
+            </div>
+          </div>
+
+        <% else %>
+
+          <div class="row">
+            <div class="col-6">
+              <h4><bold>Marin <%= schedule.team %></bold></h4>
+              <h5 class="card-text"><%= schedule.home_score %>/<%= schedule.home_wickets %></h5>
+              <h5 class="card-text"><%= schedule.home_overs %></h5>
+            </div>
+            <div class="col-6">
+              <h4><bold><%= schedule.opponent %></bold></h4>
+              <h5 class="card-text"><%= schedule.away_score %>/<%= schedule.away_wickets %></h5>
+              <h5 class="card-text"><%= schedule.away_overs %></h5>
+            </div>
+            <div class="col-12">
+              <br>
+              <br>
+              <% if schedule.home_score > schedule.away_score %>
+                <h1><%= schedule.team %> win!</h1>
+              <% else %>
+                <h1><%= schedule.opponent %> win</h1>
+              <% end %>
+            </div>
+          </div>
+
+        <% end %>
+
+      <% else %>
+
+        <p class="card-text">When: <%= schedule.date.strftime('%A %B %d') %></p>
+        <p class="card-text">Game <%= schedule.series_game %></p>
+        <p class="card-text">Where: <%= schedule.location %></p>
+
+      <% end %>
+
+      <% if schedule.team == 'Socials' %>
+
+        <% if logged_in? == false && next_week.cover?(schedule.date) %>
+          <%= link_to 'Sign Up for Selection', login_path, class: 'btn btn-success' %>
+        <% elsif logged_in? && current_user.paid == false %>
+          <%= link_to 'Sign Up for Selection', membership_path, class: 'btn btn-success' %>
+        <% end %>
+
+        <% unless schedule.date < Date.today + 54.5.hours %>
+          <% if logged_in? && paid && next_week.cover?(schedule.date) %>
+            <% if schedule.selections.find_by(user_id: current_user.id) %>
+              <%= link_to 'Withdraw from Selection', unavailable_schedule_path(schedule),
                  class: 'btn btn-danger', data: { confirm: 'Are you sure? You will not be selected to play.'} %>
-          <% else %>
-            <%= link_to 'Sign Up for Selection', available_schedule_path(schedule), class: 'btn btn-success' %>
+            <% else %>
+              <%= link_to 'Sign Up for Selection', available_schedule_path(schedule), class: 'btn btn-success' %>
+            <% end %>
           <% end %>
         <% end %>
+
       <% end %>
 
     </div>
-      <div class="card-footer">
-        <span><%= link_to 'Game Information', schedule %></span>
-        <% if admin_logged_in? %>
-          <span class="float-left"><%= link_to 'Edit Game', edit_schedule_path(schedule) %></span>
-          <span class="float-right"><%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %></span>
-        <% end %>
-      </div>
+    <div class="card-footer">
+      <span><%= link_to 'Game Information', schedule %></span>
+      <% if admin_logged_in? %>
+        <span class="float-left"><%= link_to 'Edit Game', edit_schedule_path(schedule) %></span>
+        <span class="float-right"><%= link_to 'Delete Game', schedule, method: :delete, data: { confirm: 'You sure brah?' } %></span>
+      <% end %>
+    </div>
   </div>
 </div>

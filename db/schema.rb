@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_192039) do
+ActiveRecord::Schema.define(version: 2019_06_06_180747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,14 +36,49 @@ ActiveRecord::Schema.define(version: 2019_04_05_192039) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "game_stats", force: :cascade do |t|
+    t.bigint "schedule_id"
+    t.index ["schedule_id"], name: "index_game_stats_on_schedule_id"
+  end
+
+  create_table "player_stats", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "games_played", default: 0
+    t.integer "bat_innings", default: 0
+    t.integer "not_outs", default: 0
+    t.integer "bat_runs", default: 0
+    t.integer "high_score", default: 0
+    t.integer "balls_faced", default: 0
+    t.integer "hundreds", default: 0
+    t.integer "fifties", default: 0
+    t.integer "fours", default: 0
+    t.integer "sixes", default: 0
+    t.integer "catches", default: 0
+    t.integer "run_outs", default: 0
+    t.integer "stumpings", default: 0
+    t.integer "bowl_innings", default: 0
+    t.integer "balls_bowled", default: 0
+    t.integer "bowl_runs", default: 0
+    t.integer "wickets", default: 0
+    t.string "best_bowling", default: "0/0"
+    t.index ["user_id"], name: "index_player_stats_on_user_id"
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.date "date"
+    t.time "start_time", default: "2000-01-01 10:45:00"
     t.string "opponent"
+    t.string "team"
     t.integer "series_game"
-    t.boolean "completed", default: false
-    t.string "location", default: "Piper Park, Larkspur"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "away_score"
+    t.integer "away_wickets"
+    t.float "away_overs"
+    t.integer "home_score"
+    t.integer "home_wickets"
+    t.float "home_overs"
   end
 
   create_table "selections", force: :cascade do |t|
@@ -58,6 +93,9 @@ ActiveRecord::Schema.define(version: 2019_04_05_192039) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "role"
+    t.string "bats", default: "Right"
+    t.string "bowls", default: "Right"
     t.boolean "paid", default: false
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
@@ -69,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_192039) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "surname"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

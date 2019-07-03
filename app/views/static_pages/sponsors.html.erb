@@ -1,9 +1,9 @@
 <% provide(:title, 'Sponsors') %>
 
-<h1 class="text-center">Our Sponsor</h1>
+<h1 class="text-center">Our Sponsors</h1>
 
 <div class="row">
-  <div class="col-xl-9 col-lg-9 col-md-6 col-sm-12 col-12 col-xs-12">
+  <div class="col-xl-10 col-lg-10 col-md-6 col-sm-12 col-12 col-xs-12">
     <p>
       Marin Cricket Club is proud to be partnered with
       <%= link_to 'New York Life', 'https://www.newyorklife.com', target: 'blank' %>.
@@ -19,8 +19,29 @@
       directly for any of your insurance needs.</p>
   </div>
 
-  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 col-xs-12 text-center">
-    <%= link_to image_tag('nyl_logo.png', alt: 'New York Life'),
+  <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12 col-xs-12 text-center">
+    <%= link_to image_tag('nylife_logo.png', alt: 'New York Life'),
         'https://www.newyorklife.com', target: 'blank', class: 'img-fluid' %>
+  </div>
+</div>
+
+<div class="row" style="margin-top:60px">
+  <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12 col-xs-12 text-center">
+    <%= link_to image_tag('OmniPro.png', alt: 'OmniPro'),
+        'https://omnipro.com', target: 'blank', class: 'img-fluid' %>
+  </div>
+
+  <div class="col-xl-10 col-lg-10 col-md-6 col-sm-12 col-12 col-xs-12">
+    <p>
+      We are beyond pleased to welcome our newest sponsor
+      <%= link_to 'Omnipro', 'https://omnipro.com', target: 'blank' %> on board!
+      We greatly appreciate their support and look forward to a long fruitful relationship.
+    </p>
+
+    <p>OmniPro are specialists in providing technology solutions to the Government and Education sectors.</p>
+
+    <p>Please contact
+       <%= mail_to 'info@omnipro.com', 'OmniPro', target: 'blank' %>
+      directly if you have any questions.</p>
   </div>
 </div>
