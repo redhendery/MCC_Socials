@@ -67,7 +67,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
     @selection.destroy
-    flash[:danger] = current_user.name + ' you will not be slected to play.'
+    flash[:danger] = current_user.name + ' you will not be selected to play.'
     redirect_to @schedule
   end
 
