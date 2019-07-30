@@ -1,32 +1,41 @@
-<h1>2019 Season Now Open!!!</h1>
-<p>
-  Welcome to Marin Cricket Club, the best cricket experience in the Bay Area!
-</p>
-<p>
-  Here you will find all the information
-  <%= link_to "about our club and it's executive members", about_path %>
-  and current season!
-</p>
-<p>
-  We do have space available to players interested in joining one of our NCCA League Teams.
-</p>
-<p>
-  If you would like to be part of our club,
-  <%= link_to 'send us a message', contact_index_path %>
-  and we will get back to you as soon as we can!
-</p>
-</br>
-<p>
-  The sixth annual <%= link_to 'New York Life Tournent', nyl_2019_path %> was held on held July 13th!
-  Congratulations to Team India defending their title!
-</p>
-<p>
-  The annual <%= link_to 'Ashes game', ashes_path %> is schedule for August 17th.
-</p>
-</br>
-<p>Previous Socials members please create an account to sign up for this seasons games!</p>
-<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-</br>
-</br>
-<p>Already a Socials member? Log in to sign up for upcoming games!</p>
-<%= link_to 'Log in now!', login_path, class: 'btn btn-lg btn-primary' %>
+<div class="row">
+  <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+    <h1>2019 Season Now Open!!!</h1>
+    <p>
+      Welcome to Marin Cricket Club, the best cricket experience in the Bay Area!
+    </p>
+    <p>
+      Here you will find all the information
+      <%= link_to "about our club and it's executive members", about_path %>
+      and current season!
+    </p>
+    <p>
+      We do have space available to players interested in joining one of our NCCA League Teams.
+    </p>
+    <p>
+      If you would like to be part of our club,
+      <%= link_to 'send us a message', contact_index_path %>
+      and we will get back to you as soon as we can!
+    </p>
+    </br>
+    <p>
+      The sixth annual <%= link_to 'New York Life Tournent', nyl_2019_path %> was held on held July 13th!
+      Congratulations to Team India defending their title!
+    </p>
+    <p>
+      The annual <%= link_to 'Ashes game', ashes_path %> is schedule for August 17th.
+    </p>
+    </br>
+    <p>Previous Socials members please create an account to sign up for this seasons games!</p>
+    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    </br>
+    </br>
+    <p>Already a Socials member? Log in to sign up for upcoming games!</p>
+    <%= link_to 'Log in now!', login_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+  <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+    <%= link_to ashes_path do %>
+      <%= image_tag('ashes.png', alt: 'New York Life 2019', class: 'img-fluid') %>
+    <% end %>
+  </div>
+</div>
