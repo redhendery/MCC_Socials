@@ -23,8 +23,12 @@
       Congratulations to Team India defending their title!
     </p>
     <p>
-      The annual <%= link_to 'Ashes game', ashes_path %> is schedule for August 17th.
+      The annual <%= link_to 'Ashes game', ashes_path %> is schedule for August 17th. Please RSVP below:
     </p>
+    <%= link_to 'RSVP Here!',
+      'https://www.eventbrite.com/e/marin-cricket-club-ashes-2019-tickets-67068582937',
+      class: 'btn btn-lg btn-success', target: 'blank' %>
+    </br>
     </br>
     <p>Previous Socials members please create an account to sign up for this seasons games!</p>
     <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
