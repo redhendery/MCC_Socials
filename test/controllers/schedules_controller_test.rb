@@ -6,10 +6,22 @@ class SchedulesControllerTest < ActionDispatch::IntegrationTest
     @schedule = schedules(:one)
   end
 
-  test 'should get schedules' do
-    get schedules_path
+  test 'should get Socials schedules' do
+    get socials_schedules_path
     assert_response :success
-    assert_select 'title', 'All Games | Marin Cricket Club'
+    assert_select 'title', 'Socials XI Games | Marin Cricket Club'
+  end
+
+  test 'should get Second XI schedules' do
+    get seconds_schedules_path
+    assert_response :success
+    assert_select 'title', 'Second XI Games | Marin Cricket Club'
+  end
+
+  test 'should get First XI schedules' do
+    get firsts_schedules_path
+    assert_response :success
+    assert_select 'title', 'First XI Games | Marin Cricket Club'
   end
 
   test 'should redirect edit when not logged in' do

@@ -5,13 +5,15 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  date: DateTime.strptime('05/04/2019', '%m/%d/%Y')
+  date: DateTime.strptime('05/11/2019', '%m/%d/%Y')
+  start_time: Time.now
   opponent: Intraclub
   series_game: 1
   location: Piper Park, Larkspur
 
 two:
   date: DateTime.strptime('05/11/2019', '%m/%d/%Y')
+  start_time: Time.now
   opponent: Sri Lanka
   series_game: 1
   location: Piper Park, Larkspur

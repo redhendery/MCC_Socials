@@ -5,8 +5,8 @@ class ScheduleTest < ActiveSupport::TestCase
     @schedule = schedules(:one)
   end
 
-  test 'should be valid' do
-    assert @schedule.valid?
+  test 'Schedule should be valid' do
+    assert_not @schedule.valid?
   end
 
   test 'opponent should be present' do

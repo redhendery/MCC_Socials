@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   has_one :player_stat, dependent: :destroy
   after_create :create_player_stat
   has_many :selections
@@ -11,7 +12,6 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # Returns the hash digest of the given string.

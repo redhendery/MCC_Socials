@@ -1,5 +1,6 @@
 steve:
-  name: Steve Stevenson
+  name: Steve
+  surname: Stevenson
   email: steve@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
@@ -7,7 +8,8 @@ steve:
   activated_at: <%= Time.zone.now %>
 
 mike:
-  name: Mike Michaelson
+  name: Mike
+  surname: Michaelson
   email: mike@example.com
   password_digest: <%= User.digest('password') %>
   admin: false
